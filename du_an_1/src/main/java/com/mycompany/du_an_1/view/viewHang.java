@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.View;
-import com.mycompany.DomainModels.Hang;
-import com.mycompany.Service.HangService;
-import com.mycompany.Service.IPM.HangServiceImp;
+package com.mycompany.du_an_1.view;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -19,7 +17,7 @@ public class viewHang extends javax.swing.JFrame {
      * Creates new form Hang
      */
     DefaultTableModel model;
-    private HangService dongService =new HangServiceImp();
+//    private HangService dongService =new HangServiceImp();
     
     public viewHang() {
         initComponents();
@@ -35,13 +33,13 @@ public class viewHang extends javax.swing.JFrame {
 //            model.addRow(row);
 //        }
     }
-    private Hang getForm() {
-        String id = lblID.getText().trim();
-        String ma = txtMa.getText().trim();
-        String ten = txtTen.getText().trim();
-        Hang sp =new Hang(id, ma, ten, null);
-        return sp;
-    }
+//    private Hang getForm() {
+//        String id = lblID.getText().trim();
+//        String ma = txtMa.getText().trim();
+//        String ten = txtTen.getText().trim();
+//        Hang sp =new Hang(id, ma, ten, null);
+//        return sp;
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -263,44 +261,44 @@ public class viewHang extends javax.swing.JFrame {
             return;
         }
         String Ma = txtMa.getText();
-        dongService.delete(Ma);
+//        dongService.delete(Ma);
         LoadTable();
         JOptionPane.showMessageDialog(this, "Xóa Thành Công");
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        Hang sp = getForm();
-        if (sp == null) {
-            return;
-        }
-        if (txtMa.getText().isEmpty() || txtTen.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui Lòng Nhập Đầy Đủ Thông Tin");
-            return;
-        }
-        dongService.insert(sp);
-        LoadTable();
-        JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
+//        Hang sp = getForm();
+//        if (sp == null) {
+//            return;
+//        }
+//        if (txtMa.getText().isEmpty() || txtTen.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Vui Lòng Nhập Đầy Đủ Thông Tin");
+//            return;
+//        }
+////        dongService.insert(sp);
+//        LoadTable();
+//        JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        Hang b = getForm();
-        if (b == null) {
-            return;
-        }
-        int chon = tbl_DongSP.getSelectedRow();
-        if (chon < 0) {
-            JOptionPane.showMessageDialog(this, "Chọn Dòng Cần Sửa");
-            return;
-        }
-        int confirm = JOptionPane.showConfirmDialog(this, "Bạn Muốn Sửa Không?", "Sửa", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) {
-            return;
-        }
-        dongService.update(b.getMa(), b);
-        LoadTable();
-        JOptionPane.showMessageDialog(this, "Sửa Thành Công");
+//        Hang b = getForm();
+//        if (b == null) {
+//            return;
+//        }
+//        int chon = tbl_DongSP.getSelectedRow();
+//        if (chon < 0) {
+//            JOptionPane.showMessageDialog(this, "Chọn Dòng Cần Sửa");
+//            return;
+//        }
+//        int confirm = JOptionPane.showConfirmDialog(this, "Bạn Muốn Sửa Không?", "Sửa", JOptionPane.YES_NO_OPTION);
+//        if (confirm != JOptionPane.YES_OPTION) {
+//            return;
+//        }
+//        dongService.update(b.getMa(), b);
+//        LoadTable();
+//        JOptionPane.showMessageDialog(this, "Sửa Thành Công");
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -314,52 +312,52 @@ public class viewHang extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new viewHang().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Hang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new viewHang().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSua;
