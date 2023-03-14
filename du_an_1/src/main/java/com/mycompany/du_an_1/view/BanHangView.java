@@ -77,13 +77,13 @@ public class BanHangView extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã", "Nhân viên", "Khách hàng", "Ngày tạo", "Trạng thái"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -109,13 +109,13 @@ public class BanHangView extends javax.swing.JInternalFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã", "Tên sản phẩm", "Loại", "Hãng", "Size", "Màu sắc", "Chất liệu đế", "Số lượng", "Đơn giá", "Trạng thái"
             }
         ));
         jScrollPane3.setViewportView(jTable2);
@@ -159,7 +159,7 @@ public class BanHangView extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã", "Tên", "Đơn giá", "Số lượng"
             }
         ));
         jScrollPane4.setViewportView(jTable3);
