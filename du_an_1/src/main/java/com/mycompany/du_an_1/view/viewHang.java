@@ -91,6 +91,9 @@ public class viewHang extends javax.swing.JFrame {
 
         lblID.setText("-");
 
+        btnXoa.setBackground(new java.awt.Color(255, 153, 153));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,9 @@ public class viewHang extends javax.swing.JFrame {
             }
         });
 
+        btnThem.setBackground(new java.awt.Color(102, 204, 0));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +111,9 @@ public class viewHang extends javax.swing.JFrame {
             }
         });
 
+        btnSua.setBackground(new java.awt.Color(0, 153, 255));
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +133,6 @@ public class viewHang extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reload.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
