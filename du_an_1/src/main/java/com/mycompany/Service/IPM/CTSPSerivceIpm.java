@@ -66,7 +66,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -150,7 +150,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -175,7 +175,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -200,7 +200,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -229,7 +229,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -269,7 +269,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSize(chiTietSP.getSize());
             sp.setSoLuong(chiTietSP.getSoLuong());
@@ -295,7 +295,7 @@ public class CTSPSerivceIpm implements ChiTietSPService {
             sp.setLoai(chiTietSP.getLoaiSP().getTen());
             sp.setMauSac(chiTietSP.getMauSac().getTen());
             sp.setNhaSanXuat(chiTietSP.getNsx().getTen());
-            sp.setNhaCungCap(chiTietSP.getNcc().getTen());
+            sp.setChatLieuDeGiay(chiTietSP.getChatLieuDeGiay().getTen());
             sp.setHang(chiTietSP.getHang().getTen());
             sp.setSoLuong(chiTietSP.getSoLuong());
             sp.setGiaNhap(chiTietSP.getGiaNhap());

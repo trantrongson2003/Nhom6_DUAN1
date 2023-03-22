@@ -9,11 +9,14 @@ import com.mycompany.Util.DBContext;
 import com.mycompany.Util.HibernateUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
- * @author FPT
+ * @author kunrl
  */
 public class SanPhamRepository {
     public Integer updateSP(SanPham sp){
@@ -41,5 +44,16 @@ public class SanPhamRepository {
             return -1;
         }
         return 1;
+    }
+    public List<SanPham> getAllChucVu() {
+        Transaction trans = null;
+        List<SanPham> listcv = new ArrayList();
+        try (Session sess = HibernateUtil.getFACTORY().openSession()) {
+            trans = sess.beginTransaction();
+            listcv = sess.createQuery("Select sp FROM SanPham sp order by sp.Ma asc").list();
+
+            trans.commit();
+        }
+        return listcv;
     }
 }

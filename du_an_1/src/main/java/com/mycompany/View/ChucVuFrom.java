@@ -5,10 +5,10 @@
  */
 package com.mycompany.View;
 
-
 import com.mycompany.DomainModels.ChucVu;
 import com.mycompany.Service.ChucVuSevice;
 import com.mycompany.Service.IPM.ChucVuServiceImp;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +17,9 @@ import javax.swing.table.DefaultTableModel;
  * @author nqtin
  */
 public class ChucVuFrom extends javax.swing.JFrame {
- private ChucVuSevice svcv = new ChucVuServiceImp();
+
+    private ChucVuSevice svcv = new ChucVuServiceImp();
+
     /**
      * Creates new form ChucVuViews
      */
@@ -25,7 +27,7 @@ public class ChucVuFrom extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         loaddata();
-         //tinhnqph23160
+        //tinhnqph23160
     }
 
     /**
@@ -81,7 +83,7 @@ public class ChucVuFrom extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ma", "Tên", "TrangThai"
+                "Ma", "Tên", "Ngày tạo", "Ngày sửa", "Trạng thái"
             }
         ));
         tbchucvu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,35 +206,25 @@ public class ChucVuFrom extends javax.swing.JFrame {
 
         txtma.setText(tbchucvu.getValueAt(row, 0).toString());
         txtten.setText(tbchucvu.getValueAt(row, 1).toString());
-        
+
     }//GEN-LAST:event_tbchucvuMouseClicked
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
         ChucVu cv = getFrom();
-
-        if(svcv.InsertChucVu(cv) != null){
-            JOptionPane.showMessageDialog(this, "Thanh công");
-        }else{
-            JOptionPane.showMessageDialog(this, "That bai");
-        }
+        svcv.InsertChucVu(cv);
         loaddata();
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
         int row = tbchucvu.getSelectedRow();
-        if(row == -1){
+        if (row == -1) {
             JOptionPane.showMessageDialog(this, "Mời Chọn Dòng");
-            return ;
+            return;
         }
         ChucVu cv = getFrom();
-
-        if(svcv.updateChucVu(cv, cv.getMa(), cv.getTen(), cv.getTrangThai()) != null){
-            JOptionPane.showMessageDialog(this, "Thành Công");
-        }else{
-            JOptionPane.showMessageDialog(this, "Thất Bại");
-        }
+        svcv.updateChucVu(cv, cv.getMa(), cv.getTen(), new Date(), cv.getTrangThai());
         loaddata();
     }//GEN-LAST:event_btnsuaActionPerformed
 
@@ -296,20 +288,23 @@ public class ChucVuFrom extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void loaddata() {
-         DefaultTableModel de = (DefaultTableModel) tbchucvu.getModel();
+        DefaultTableModel de = (DefaultTableModel) tbchucvu.getModel();
         de.setRowCount(0);
-        for(ChucVu cv : svcv.getListChucVu()){
+        for (ChucVu cv : svcv.getListChucVu()) {
             de.addRow(new Object[]{
-                cv.getMa(), cv.getTen(), cv.getTrangThai()
+                cv.getMa(), cv.getTen(), cv.getNgayTao(), cv.getNgaySua(), cv.getTrangThai()
             });
         }
-        
+
     }
-      public ChucVu getFrom(){
+
+    public ChucVu getFrom() {
         ChucVu cv = new ChucVu();
         cv.setMa(txtma.getText().trim());
         cv.setTen(txtma.getText().trim());
-        
+        cv.setNgayTao(new Date());
+        cv.setNgaySua(new Date());
+
         return cv;
     }
 }

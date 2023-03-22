@@ -39,7 +39,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
         for (SanPhamViewModelSP nv : ctsp.getAllSPNgungKinhDoanh()) {
             model.addRow(new Object[]{
                 nv.getMa(), nv.getTen(), nv.getMauSac(), nv.getNhaSanXuat(),
-                nv.getNhaCungCap(), nv.getHang(),
+                nv.getChatLieuDeGiay(), nv.getHang(),
                 nv.getLoai(), nv.getSize(), nv.getSoLuong(), nv.getGiaNhap(), nv.getGiaBan(), nv.getTrangThai() == 0 ? "Đang Kinh Doamh" : "Ngừng Kinh Doanh", nv.getBarcode()
             });
         }
@@ -179,7 +179,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
             }
             if (chiTietSPService.KhoiPhuc(id) > 0) {
                 LoadTable();
-                SanPhamPanel.sanPhamPanel.fillTable();
+                SanPhamChiTietPanel.sanPhamPanel.fillTable();
             }
         } catch (Exception e) {
             e.printStackTrace();

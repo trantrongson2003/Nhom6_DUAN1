@@ -9,6 +9,7 @@ import com.mycompany.DomainModels.LoaiSP;
 import com.mycompany.Service.IPM.LoaiSPServiceImp;
 import com.mycompany.Service.LoaiSPService;
 import com.mycompany.ViewModel.LoaiSP.LoaiSPViewModel;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,15 +35,15 @@ public class LoaiSPForm extends javax.swing.JFrame {
         model = (DefaultTableModel) tbl_DongSP.getModel();
         model.setRowCount(0);
         for (LoaiSP lspvm : loaiSPService.getALLloai()) {
-            Object row[] = {lspvm.getId(), lspvm.getMa(), lspvm.getTen()};
+            Object row[] = {lspvm.getId(), lspvm.getMa(), lspvm.getTen(), lspvm.getNgayTao(), lspvm.getNgaySua()};
             model.addRow(row);
         }
     }
-    private LoaiSP getForm() {
+  private LoaiSP getForm() {
         String id = lblID.getText().trim();
         String ma = txtMa.getText().trim();
         String ten = txtTen.getText().trim();
-        LoaiSP sp=new LoaiSP(id, ma, ten,null);
+        LoaiSP sp=new LoaiSP(id, ma, ten,new Date(), new Date(),null);
         return sp;
     }
 
@@ -57,8 +58,6 @@ public class LoaiSPForm extends javax.swing.JFrame {
 
         txtTen = new javax.swing.JTextField();
         txtMa = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_DongSP = new javax.swing.JTable();
         lblID = new javax.swing.JLabel();
         btnXoa = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
@@ -68,24 +67,11 @@ public class LoaiSPForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_DongSP = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-
-        tbl_DongSP.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Mã Dòng", "Tên Dòng"
-            }
-        ));
-        tbl_DongSP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_DongSPMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl_DongSP);
 
         lblID.setText("-");
 
@@ -129,43 +115,58 @@ public class LoaiSPForm extends javax.swing.JFrame {
             }
         });
 
+        tbl_DongSP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Mã Dòng", "Tên Dòng", "Ngày tạo", "Ngày sửa"
+            }
+        ));
+        tbl_DongSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_DongSPMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_DongSP);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(80, 80, 80))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMa)
-                            .addComponent(txtTen))
-                        .addGap(106, 106, 106))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(btnThem)
-                .addGap(29, 29, 29)
-                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(68, 68, 68)))
-                .addContainerGap())
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnThem)
+                                .addGap(29, 29, 29)
+                                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 146, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMa)
+                                    .addComponent(txtTen))
+                                .addGap(106, 106, 106))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,26 +187,18 @@ public class LoaiSPForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
                     .addComponent(btnSua)
                     .addComponent(btnXoa))
-                .addGap(43, 43, 43)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbl_DongSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_DongSPMouseClicked
-        // TODO add your handling code here:
-        int index=tbl_DongSP.getSelectedRow();
-        lblID.setText(tbl_DongSP.getValueAt(index, 0).toString());
-        txtMa.setText(tbl_DongSP.getValueAt(index, 1).toString());
-        txtTen.setText(tbl_DongSP.getValueAt(index, 2).toString());
-    }//GEN-LAST:event_tbl_DongSPMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
@@ -236,7 +229,7 @@ public class LoaiSPForm extends javax.swing.JFrame {
         }
         loaiSPService.insert(sp);
         LoadTable();
-        SanPhamPanel.sanPhamPanel.loadCBBLoai();
+        SanPhamChiTietPanel.sanPhamPanel.loadCBBLoai();
         JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -267,6 +260,14 @@ public class LoaiSPForm extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tbl_DongSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_DongSPMouseClicked
+        // TODO add your handling code here:
+        int index=tbl_DongSP.getSelectedRow();
+        lblID.setText(tbl_DongSP.getValueAt(index, 0).toString());
+        txtMa.setText(tbl_DongSP.getValueAt(index, 1).toString());
+        txtTen.setText(tbl_DongSP.getValueAt(index, 2).toString());
+    }//GEN-LAST:event_tbl_DongSPMouseClicked
 
     /**
      * @param args the command line arguments

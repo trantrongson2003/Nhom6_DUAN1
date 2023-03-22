@@ -6,6 +6,7 @@
 package com.mycompany.Service;
 
 import com.mycompany.DomainModels.ChucVu;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,5 +20,5 @@ public interface ChucVuSevice {
 
     ChucVu InsertChucVu(ChucVu cv);
 
-    ChucVu updateChucVu(ChucVu cv, String ma, String ten, Integer trangthai);
+    ChucVu updateChucVu(ChucVu cv, String ma, String ten, Date ngayTao,Integer trangthai);
 }

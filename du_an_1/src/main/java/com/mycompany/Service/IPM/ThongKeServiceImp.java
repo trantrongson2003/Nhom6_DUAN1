@@ -30,7 +30,7 @@ public class ThongKeServiceImp implements ThongKeService {
             tkv.setMa(chiTietSP.getSanPham().getMa());
             tkv.setTenSp(chiTietSP.getSanPham().getTen());
             tkv.setTenMausac(chiTietSP.getMauSac().getTen());
-            tkv.setTenNcc(chiTietSP.getNcc().getTen());
+            tkv.setTenNcc(chiTietSP.getChatLieuDeGiay().getTen());
             tkv.setTenNsx(chiTietSP.getNsx().getTen());
             tkv.setTenHang(chiTietSP.getHang().getTen());
             tkv.setSoLuong(chiTietSP.getSoLuong());

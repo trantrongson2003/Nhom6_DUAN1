@@ -9,6 +9,7 @@ import com.mycompany.DomainModels.MauSac;
 import com.mycompany.Service.IPM.MauSacServiceImp;
 import com.mycompany.Service.MauSacService;
 import com.mycompany.ViewModel.mauSac.MauSacViewModel;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +34,7 @@ public class MauSacForm extends javax.swing.JFrame {
         model = (DefaultTableModel)tbl_MauSac.getModel();
         model.setRowCount(0);
         for (MauSac sp : mauSacService.GetALLMS()) {
-            Object row[] = {sp.getId(), sp.getMa(), sp.getTen()};
+            Object row[] = {sp.getId(), sp.getMa(), sp.getTen(), sp.getNgayTao(), sp.getNgaySua()};
             model.addRow(row);
         }
     }
@@ -42,7 +43,7 @@ public class MauSacForm extends javax.swing.JFrame {
         String id = lblID.getText().trim();
         String ma = txtMa.getText().trim();
         String ten = txtTen.getText().trim();
-        MauSac sp = new MauSac(id, ma, ten);
+        MauSac sp = new MauSac(id, ma, ten,new Date(), new Date(),null);
         return sp;
     }
 
@@ -77,7 +78,7 @@ public class MauSacForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Mã Màu", "Tên Màu"
+                "ID", "Mã Màu", "Tên Màu", "Ngày tạo", "Ngày sửa"
             }
         ));
         tbl_MauSac.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,7 +257,7 @@ public class MauSacForm extends javax.swing.JFrame {
         }
         mauSacService.insert(sp);
         LoadTable();
-        SanPhamPanel.sanPhamPanel.loadCBBMS();
+        SanPhamChiTietPanel.sanPhamPanel.loadCBBMS();
         JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -322,8 +323,6 @@ public class MauSacForm extends javax.swing.JFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

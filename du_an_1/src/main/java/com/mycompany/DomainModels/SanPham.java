@@ -5,6 +5,7 @@
 package com.mycompany.DomainModels;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,10 +30,17 @@ public class SanPham implements Serializable{
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
-    private String Id;
-    
+       private String Id;
     private String Ma;
     private String Ten;
+    private Date ngayTao;
+    private Date ngaySua;
+    private Integer TrangThai;
+
+    @Override
+    public String toString() {
+        return Ten;
+    }
     
 //    @OneToMany(mappedBy = "sanPham")
 //    private List<ChiTietSP> chiTietSPs;

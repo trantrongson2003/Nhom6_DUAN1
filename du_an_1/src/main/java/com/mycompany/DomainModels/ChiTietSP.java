@@ -21,7 +21,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
- * @author FPT
+ * @author kunrl
  */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -55,9 +55,8 @@ public class ChiTietSP implements Serializable{
     private Hang hang;
     
     @ManyToOne
-    @JoinColumn(name = "IdNhaCC")
-    private NhaCungCap ncc;
-    
+    @JoinColumn(name = "IdCLDG")
+    private ChatLieuDeGiay chatLieuDeGiay;
     private Integer ThoiGianBH;
     private String MoTa;
     private Integer Size;

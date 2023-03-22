@@ -8,7 +8,7 @@ import com.mycompany.DomainModels.ChiTietSP;
 import com.mycompany.DomainModels.GiamGiaChiTiet;
 import com.mycompany.DomainModels.LoaiSP;
 import com.mycompany.DomainModels.MauSac;
-import com.mycompany.DomainModels.NhaCungCap;
+import com.mycompany.DomainModels.ChatLieuDeGiay;
 import com.mycompany.DomainModels.PhieuGiamGia;
 import com.mycompany.DomainModels.SanPham;
 import com.mycompany.Util.DBContext;

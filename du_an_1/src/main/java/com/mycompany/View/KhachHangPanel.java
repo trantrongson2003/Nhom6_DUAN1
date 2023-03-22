@@ -20,12 +20,7 @@ public class KhachHangPanel extends javax.swing.JPanel {
 
     public KhachHangPanel() {
         initComponents();
-        loadTableChiTietSP(svKH.getList());
-        if (svKH.totalCount() % 5 == 0) {
-            tongsoTrang = (int) (svKH.totalCount() / 5);
-        } else {
-            tongsoTrang = (int) (svKH.totalCount() / 5 + 1);
-        }
+        loadFind(svKH.getList());
     }
 
     public KhachHang getFormData() {
@@ -455,11 +450,11 @@ public class KhachHangPanel extends javax.swing.JPanel {
             return;
         }
         KhachHang kh = getFormData();
-        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn Sửa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (tb == JOptionPane.YES_OPTION) {
              svKH.UPDATE(kh, kh.getMa());
             loadTableChiTietSP(svKH.getList());
-            JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
+            JOptionPane.showMessageDialog(this, "Sửa Thành Công !");
         } else {
             JOptionPane.showMessageDialog(this, "Đã hủy!");
         }

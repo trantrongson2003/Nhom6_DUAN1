@@ -8,6 +8,7 @@ package com.mycompany.Service.IPM;
 import com.mycompany.DomainModels.ChucVu;
 import com.mycompany.Repository.ChucVuRepository;
 import com.mycompany.Service.ChucVuSevice;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +31,9 @@ public class ChucVuServiceImp implements ChucVuSevice{
         return rep.insertChucVu(cv);
     }
      @Override
-    public ChucVu updateChucVu(ChucVu cv, String ma, String ten, Integer trangthai){
-        return rep.updateChucVu(cv, ma, ten, trangthai);
+    public ChucVu updateChucVu(ChucVu cv, String ma, String ten,  Date ngayTao,Integer trangthai){
+        return rep.updateChucVu(cv, ma, ten, ngayTao,trangthai);
     }
+
+
 }

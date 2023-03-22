@@ -5,6 +5,7 @@
 package com.mycompany.Service;
 
 import com.mycompany.DomainModels.SanPham;
+import java.util.List;
 
 /**
  *
@@ -12,7 +13,12 @@ import com.mycompany.DomainModels.SanPham;
  */
 public interface SanPhamService {
 
-    Integer updateSP(SanPham sp);
+    public List<SanPham> getAllChucVu();
 
-    Integer addSP(SanPham sp);
+     public Integer addSP(SanPham sp);
+
+    public Integer updateSP(SanPham sp);
+    
+
+
 }

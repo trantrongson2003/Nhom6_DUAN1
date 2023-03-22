@@ -7,6 +7,7 @@ package com.mycompany.Service.IPM;
 import com.mycompany.DomainModels.SanPham;
 import com.mycompany.Repository.SanPhamRepository;
 import com.mycompany.Service.SanPhamService;
+import java.util.List;
 
 /**
  *
@@ -19,17 +20,29 @@ public class SanPhamServiceImp implements SanPhamService{
     public SanPhamServiceImp() {
         this.sanPhamRepository = new SanPhamRepository();
     }
-   
-   
+
     @Override
-    public Integer updateSP(SanPham sp) {
-        return sanPhamRepository.updateSP(sp);
+    public List<SanPham> getAllChucVu() {
+        return sanPhamRepository.getAllChucVu();
     }
 
     @Override
     public Integer addSP(SanPham sp) {
         return sanPhamRepository.addSP(sp);
     }
-    
+
+    @Override
+    public Integer updateSP(SanPham sp) {
+        return sanPhamRepository.updateSP(sp);
+    }
+
+
+
+
+
+
+   
+   
+ 
     
 }

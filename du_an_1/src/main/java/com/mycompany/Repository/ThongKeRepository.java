@@ -8,7 +8,7 @@ import com.mycompany.DomainModels.ChiTietSP;
 import com.mycompany.DomainModels.Hang;
 import com.mycompany.DomainModels.HoaDon;
 import com.mycompany.DomainModels.MauSac;
-import com.mycompany.DomainModels.NhaCungCap;
+import com.mycompany.DomainModels.ChatLieuDeGiay;
 import com.mycompany.DomainModels.NhaSanXuat;
 import com.mycompany.DomainModels.SanPham;
 import com.mycompany.DomainModels.ThongKe;
@@ -67,7 +67,7 @@ public class ThongKeRepository {
                 nsx.setTen(tennsx);
                 Hang hang = new Hang();
                 hang.setTen(tenhang);
-                NhaCungCap ncc = new NhaCungCap();
+                ChatLieuDeGiay ncc = new ChatLieuDeGiay();
                 ncc.setTen(tenncc);
             
                 ChiTietSP tk = new ChiTietSP(null,sp,null, nsx, ms, hang, ncc, null,null,size, soluong, GiaNhap, GiaBan,null,null);

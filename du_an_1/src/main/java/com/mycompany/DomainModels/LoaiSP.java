@@ -30,18 +30,21 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @Entity
 @Table(name = "LoaiSP")
-public class LoaiSP implements Serializable{
+public class LoaiSP implements Serializable {
+
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     private String Id;
     private String Ma;
     private String Ten;
+    private Date ngayTao;
+    private Date ngaySua;
     private Integer TrangThai;
-    
-      @Override
+
+    @Override
     public String toString() {
         return Ten;
     }
-    
+
 }

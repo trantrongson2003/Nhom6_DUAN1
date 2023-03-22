@@ -114,15 +114,14 @@ public class KHRepository {
     public Integer update(KhachHang kh, String ma) {
         try {
             Connection con = DBContext.getConnection();
-            String sql = "UPDATE KHACHHANG SET Ma =?, HOTEN = ?, NGAYSINH = ?, SDT = ?, DIACHI = ? ,TRANGTHAI = ? WHERE MA = ?";
+            String sql = "UPDATE KHACHHANG SET HOTEN = ?, NGAYSINH = ?, SDT = ?, DIACHI = ? ,TRANGTHAI = ? WHERE MA = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, kh.getMa());
-            ps.setString(2, kh.getHoTen());
-            ps.setDate(3, (Date) kh.getNgaySinh());
-            ps.setString(4, kh.getSdt());
-            ps.setString(5, kh.getDiaChi());
-            ps.setInt(6, kh.getTrangThai());
-            ps.setString(7, ma);
+            ps.setString(1, kh.getHoTen());
+            ps.setDate(2, (Date) kh.getNgaySinh());
+            ps.setString(3, kh.getSdt());
+            ps.setString(4, kh.getDiaChi());
+            ps.setInt(5, kh.getTrangThai());
+            ps.setString(6, ma);
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();

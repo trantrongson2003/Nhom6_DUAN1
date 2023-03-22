@@ -5,6 +5,7 @@
 package com.mycompany.DomainModels;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,16 +27,19 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 @Entity
 @Table(name = "NSX")
-public class NhaSanXuat implements Serializable{
+public class NhaSanXuat implements Serializable {
+
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     private String Id;
     private String Ma;
     private String Ten;
+    private Date ngayTao;
+    private Date ngaySua;
     private Integer TrangThai;
-    
-      @Override
+
+    @Override
     public String toString() {
         return Ten;
     }

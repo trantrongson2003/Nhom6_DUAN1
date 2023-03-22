@@ -7,6 +7,7 @@ package com.mycompany.View;
 import com.mycompany.DomainModels.Hang;
 import com.mycompany.Service.HangService;
 import com.mycompany.Service.IPM.HangServiceImp;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -31,7 +32,7 @@ public class HangForm extends javax.swing.JFrame {
         model = (DefaultTableModel) tbl_DongSP.getModel();
         model.setRowCount(0);
         for (Hang sp : dongService.GetALLHang()) {
-            Object row[] = {sp.getId(), sp.getMa(), sp.getTen()};
+            Object row[] = {sp.getId(), sp.getMa(), sp.getTen(), sp.getNgayTao(), sp.getNgaySua()};
             model.addRow(row);
         }
     }
@@ -39,7 +40,7 @@ public class HangForm extends javax.swing.JFrame {
         String id = lblID.getText().trim();
         String ma = txtMa.getText().trim();
         String ten = txtTen.getText().trim();
-        Hang sp =new Hang(id, ma, ten, null);
+        Hang sp =new Hang(id, ma, ten,new Date(), new Date(),null);
         return sp;
     }
 
@@ -74,7 +75,7 @@ public class HangForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Mã Hang", "Tên Hang"
+                "ID", "Mã Hang", "Tên Hang", "Ngày tạo", "Ngày sửa"
             }
         ));
         tbl_DongSP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,7 +234,7 @@ public class HangForm extends javax.swing.JFrame {
         }
         dongService.insert(sp);
         LoadTable();
-        SanPhamPanel.sanPhamPanel.loadCBBHang();
+        SanPhamChiTietPanel.sanPhamPanel.loadCBBHang();
         JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThemActionPerformed
 

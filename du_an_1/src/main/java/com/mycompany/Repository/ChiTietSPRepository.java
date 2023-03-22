@@ -10,7 +10,7 @@ import com.mycompany.DomainModels.Hang;
 import com.mycompany.DomainModels.HoaDon;
 import com.mycompany.DomainModels.LoaiSP;
 import com.mycompany.DomainModels.MauSac;
-import com.mycompany.DomainModels.NhaCungCap;
+import com.mycompany.DomainModels.ChatLieuDeGiay;
 import com.mycompany.DomainModels.NhaSanXuat;
 import com.mycompany.DomainModels.NhanVien;
 import com.mycompany.DomainModels.SanPham;
@@ -36,11 +36,11 @@ import org.hibernate.query.Query;
 
 /**
  *
- * @author FPT
+ * @author kunrl
  */
 public class ChiTietSPRepository {
 
-    //HungLQPH20358
+
     public List<ChiTietSP> getAll() {
         List<ChiTietSP> lst = new ArrayList<>();
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
@@ -196,15 +196,14 @@ public class ChiTietSPRepository {
         }
         return ctsp;
     }
-    //HUNGLQPH20358
-    //-------------///
+
 
     public ArrayList<ChiTietSP> getAllSPNgungKinhDoanh() {
         ArrayList<ChiTietSP> list = new ArrayList<>();
 
-        String select = "select ChiTietSP.Id ,SanPham.Ma as maSP,SanPham.Ten as tenSP ,MauSac.Ten as 'TenMS',NSX.Ten as 'TenNSX',NhaCungCap.Ten as 'TenNCC',Hang.Ten as 'TenHang',LoaiSP.Ten as 'TenLoai',ChiTietSP.Size,ChiTietSP.SoLuong,ChiTietSP.GiaNhap,ChiTietSP.GiaBan,ChiTietSP.TrangThai,ChiTietSP.Barcode from ChiTietSP \n"
+        String select = "select ChiTietSP.Id ,SanPham.Ma as maSP,SanPham.Ten as tenSP ,MauSac.Ten as 'TenMS',NSX.Ten as 'TenNSX',ChatLieuDeGiay.Ten as 'TenCLDG',Hang.Ten as 'TenHang',LoaiSP.Ten as 'TenLoai',ChiTietSP.Size,ChiTietSP.SoLuong,ChiTietSP.GiaNhap,ChiTietSP.GiaBan,ChiTietSP.TrangThai,ChiTietSP.Barcode from ChiTietSP \n"
                 + "join LoaiSP on LoaiSP.Id=ChiTietSP.IdLoaiSP\n"
-                + "join NhaCungCap on NhaCungCap.Id=ChiTietSP.IdNhaCC\n"
+                + "joinChatLieuDeGiay on ChatLieuDeGiay.Id=ChiTietSP.IdCLDG\n"
                 + "join NSX on NSX.Id=ChiTietSP.IdNsx\n"
                 + "join SanPham on SanPham.Id=ChiTietSP.IdGiay\n"
                 + "join Hang on Hang.Id=ChiTietSP.IdHang\n"
@@ -223,8 +222,8 @@ public class ChiTietSPRepository {
                 ms.setTen(rs.getString("TenMS"));
                 NhaSanXuat nsx = new NhaSanXuat();
                 nsx.setTen(rs.getString("TenNSX"));
-                NhaCungCap ncc = new NhaCungCap();
-                ncc.setTen(rs.getString("TenNCC"));
+                ChatLieuDeGiay ncc = new ChatLieuDeGiay();
+                ncc.setTen(rs.getString("TenCLDG"));
                 Hang h = new Hang();
                 h.setTen(rs.getString("TenHang"));
                 ChiTietSP ctsp = new ChiTietSP(rs.getString("Id"), sp, loaisp,
@@ -241,9 +240,9 @@ public class ChiTietSPRepository {
     public ArrayList<ChiTietSP> getAllSPDangKinhDoanh() {
         ArrayList<ChiTietSP> list = new ArrayList<>();
 
-        String select = "select ChiTietSP.Id ,SanPham.Ma as maSP,SanPham.Ten as tenSP ,MauSac.Ten as 'TenMS',NSX.Ten as 'TenNSX',NhaCungCap.Ten as 'TenNCC',Hang.Ten as 'TenHang',LoaiSP.Ten as 'TenLoai',ChiTietSP.Size,ChiTietSP.SoLuong,ChiTietSP.GiaNhap,ChiTietSP.GiaBan,ChiTietSP.TrangThai,ChiTietSP.Barcode from ChiTietSP \n"
+        String select = "select ChiTietSP.Id ,SanPham.Ma as maSP,SanPham.Ten as tenSP ,MauSac.Ten as 'TenMS',NSX.Ten as 'TenNSX',ChatLieuDeGiay.Ten as 'TenCLDG',Hang.Ten as 'TenHang',LoaiSP.Ten as 'TenLoai',ChiTietSP.Size,ChiTietSP.SoLuong,ChiTietSP.GiaNhap,ChiTietSP.GiaBan,ChiTietSP.TrangThai,ChiTietSP.Barcode from ChiTietSP \n"
                 + "join LoaiSP on LoaiSP.Id=ChiTietSP.IdLoaiSP\n"
-                + "join NhaCungCap on NhaCungCap.Id=ChiTietSP.IdNhaCC\n"
+                + "join ChatLieuDeGiay on ChatLieuDeGiay.Id=ChiTietSP.IdCLDG\n"
                 + "join NSX on NSX.Id=ChiTietSP.IdNsx\n"
                 + "join SanPham on SanPham.Id=ChiTietSP.IdGiay\n"
                 + "join Hang on Hang.Id=ChiTietSP.IdHang\n"
@@ -262,8 +261,8 @@ public class ChiTietSPRepository {
                 ms.setTen(rs.getString("TenMS"));
                 NhaSanXuat nsx = new NhaSanXuat();
                 nsx.setTen(rs.getString("TenNSX"));
-                NhaCungCap ncc = new NhaCungCap();
-                ncc.setTen(rs.getString("TenNCC"));
+                ChatLieuDeGiay ncc = new ChatLieuDeGiay();
+                ncc.setTen(rs.getString("TenCLDG"));
                 Hang h = new Hang();
                 h.setTen(rs.getString("TenHang"));
                 ChiTietSP ctsp = new ChiTietSP(rs.getString("Id"), sp, loaisp,
@@ -281,14 +280,14 @@ public class ChiTietSPRepository {
         Integer row = null;
         try {
             Connection con = DBContext.getConnection();
-            String sql = "update ChiTietSP set IdLoaiSP = ? , IdNsx = ?, IdMauSac = ?,IdHang = ?, IdNhaCC = ?  , MoTa = ? , Size = ? , SoLuong = ?\n"
+            String sql = "update ChiTietSP set IdLoaiSP = ? , IdNsx = ?, IdMauSac = ?,IdHang = ?, IdCLDG = ?  , MoTa = ? , Size = ? , SoLuong = ?\n"
                     + ",GiaNhap = ? , GiaBan = ? , TrangThai = ?,Barcode=? where id = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             String idLoai = null;
             String idNsx = null;
             String IdMauSac = null;
             String IdHang = null;
-            String IdNCC = null;
+            String IdCLDG = null;
             if (ct.getLoaiSP() != null) {
                 idLoai = ct.getLoaiSP().getId();
             }
@@ -298,8 +297,8 @@ public class ChiTietSPRepository {
             if (ct.getMauSac() != null) {
                 IdMauSac = ct.getMauSac().getId();
             }
-            if (ct.getNcc() != null) {
-                IdNCC = ct.getNcc().getId();
+            if (ct.getChatLieuDeGiay()!= null) {
+                IdCLDG = ct.getChatLieuDeGiay().getId();
             }
             if (ct.getHang() != null) {
                 IdHang = ct.getHang().getId();
@@ -308,7 +307,7 @@ public class ChiTietSPRepository {
             ps.setString(2, idNsx);
             ps.setString(3, IdMauSac);
             ps.setString(4, IdHang);
-            ps.setString(5, IdNCC);
+            ps.setString(5, IdCLDG);
 
             ps.setString(6, ct.getMoTa());
             ps.setInt(7, ct.getSize());
@@ -399,7 +398,7 @@ public class ChiTietSPRepository {
         ArrayList<ChiTietSP> listsp = new ArrayList<>();
         String select = "select ChiTietSP.Id ,SanPham.Ma as maSP,SanPham.Ten as tenSP ,MauSac.Ten as 'TenMS',NSX.Ten as 'TenNSX',NhaCungCap.Ten as 'TenNCC',Hang.Ten as 'TenHang',LoaiSP.Ten as 'TenLoai',ChiTietSP.Size,ChiTietSP.SoLuong,ChiTietSP.GiaNhap,ChiTietSP.GiaBan,ChiTietSP.TrangThai,ChiTietSP.Barcode from ChiTietSP \n"
                 + "join LoaiSP on LoaiSP.Id=ChiTietSP.IdLoaiSP\n"
-                + "join NhaCungCap on NhaCungCap.Id=ChiTietSP.IdNhaCC\n"
+                + "join ChatLieuDeGiay on ChatLieuDeGiay.Id=ChiTietSP.IdCLDG\n"
                 + "join NSX on NSX.Id=ChiTietSP.IdNsx\n"
                 + "join SanPham on SanPham.Id=ChiTietSP.IdGiay\n"
                 + "join Hang on Hang.Id=ChiTietSP.IdHang\n"
@@ -418,7 +417,7 @@ public class ChiTietSPRepository {
                 ms.setTen(rs.getString("TenMS"));
                 NhaSanXuat nsx = new NhaSanXuat();
                 nsx.setTen(rs.getString("TenNSX"));
-                NhaCungCap ncc = new NhaCungCap();
+                ChatLieuDeGiay ncc = new ChatLieuDeGiay();
                 ncc.setTen(rs.getString("TenNCC"));
                 Hang h = new Hang();
                 h.setTen(rs.getString("TenHang"));
@@ -454,5 +453,8 @@ public class ChiTietSPRepository {
         }
         return total;
     }
+      
+      
+   
     
 }

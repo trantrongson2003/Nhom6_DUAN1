@@ -26,7 +26,7 @@ public class HibernateUtil {
         Properties pro = new Properties();
         pro.put(Environment.DIALECT,"org.hibernate.dialect.SQLServerDialect" );
         pro.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        pro.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=SHOP_BAN_GIAY_TEAM2_PRO1041;encrypt=true;trustServerCertificate=true");
+        pro.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=SHOP_BAN_GIAY_TEAM6_PRO1041;encrypt=true;trustServerCertificate=true");
         pro.put(Environment.USER,"sa" );
         pro.put(Environment.PASS,"123456789" );
         
@@ -44,7 +44,7 @@ public class HibernateUtil {
         conf.addAnnotatedClass(KhachHang.class);
         conf.addAnnotatedClass(LoaiSP.class);
         conf.addAnnotatedClass(MauSac.class);
-        conf.addAnnotatedClass(NhaCungCap.class);
+        conf.addAnnotatedClass(ChatLieuDeGiay.class);
         conf.addAnnotatedClass(NhaSanXuat.class);
         conf.addAnnotatedClass(NhanVien.class);
         conf.addAnnotatedClass(PhieuGiamGia.class);

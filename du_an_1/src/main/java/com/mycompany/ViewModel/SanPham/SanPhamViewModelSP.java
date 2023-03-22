@@ -24,7 +24,7 @@ public class SanPhamViewModelSP implements Serializable{
     private String Ten;
     private String MauSac;
     private String NhaSanXuat;
-    private String NhaCungCap;
+    private String ChatLieuDeGiay;
     private String Hang;
     private String Loai;
     private Integer Size;

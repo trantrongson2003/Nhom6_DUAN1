@@ -9,7 +9,7 @@ import com.mycompany.View.KhuyenMaiPanel;
 //import com.mycompany.View.KhuyenMaiPanel;
 import com.mycompany.View.LoginForm;
 import com.mycompany.View.NhanVienPanel;
-import com.mycompany.View.SanPhamPanel;
+import com.mycompany.View.SanPhamChiTietPanel;
 import com.mycompany.View.ThongKePanel;
 import com.mycompany.component.header;
 import com.mycompany.event.EventMenu;
@@ -49,7 +49,7 @@ public class TrangChuForm extends javax.swing.JFrame {
                 } else if (index == 3) {
                     setForm(new KhuyenMaiPanel());
                 } else if (index == 4) {
-                    setForm(new SanPhamPanel());
+                    setForm(new SanPhamChiTietPanel());
                 } else if (index == 5) {
                     setForm(new NhanVienPanel());
                 } else if (index == 6) {

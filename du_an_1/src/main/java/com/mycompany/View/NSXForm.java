@@ -9,6 +9,7 @@ import com.mycompany.DomainModels.NhaSanXuat;
 import com.mycompany.Service.IPM.NhaSanXuatServiceImp;
 import com.mycompany.Service.NhaSanXuatService;
 import com.mycompany.ViewModel.nhaSanXuat.NSXViewModel;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +36,7 @@ public class NSXForm extends javax.swing.JFrame {
         model = (DefaultTableModel) tbl_NSX.getModel();
         model.setRowCount(0);
         for (NhaSanXuat sp : nsxs.GetALLNSX()) {
-            Object row[] = {sp.getId(), sp.getMa(), sp.getTen()};
+            Object row[] = {sp.getId(), sp.getMa(), sp.getTen(), sp.getNgayTao(), sp.getNgaySua()};
             model.addRow(row);
         }
     }
@@ -44,7 +45,7 @@ public class NSXForm extends javax.swing.JFrame {
         String id = lblID.getText().trim();
         String ma = txtMa.getText().trim();
         String ten = txtTen.getText().trim();
-        NhaSanXuat sp = new NhaSanXuat(id, ma, ten, null);
+        NhaSanXuat sp = new NhaSanXuat(id, ma, ten, new Date(), new Date(), null);
         return sp;
     }
 
@@ -79,7 +80,7 @@ public class NSXForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Mã NSX", "Tên NSX"
+                "ID", "Mã NSX", "Tên NSX", "Ngày tạo ", "Ngày sửa"
             }
         ));
         tbl_NSX.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,7 +239,7 @@ public class NSXForm extends javax.swing.JFrame {
         }
         nsxs.insert(sp);
         LoadTable();
-        SanPhamPanel.sanPhamPanel.loadCBBNSX();
+        SanPhamChiTietPanel.sanPhamPanel.loadCBBNSX();
         JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThem2ActionPerformed
 

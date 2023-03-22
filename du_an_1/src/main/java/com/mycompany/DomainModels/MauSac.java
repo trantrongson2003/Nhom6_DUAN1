@@ -4,6 +4,7 @@
  */
 package com.mycompany.DomainModels;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,14 +27,17 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "MauSac")
 public class MauSac {
+
     @Id
     @GenericGenerator(name = "generator", strategy = "guid", parameters = {})
     @GeneratedValue(generator = "generator")
     private String Id;
     private String Ma;
     private String Ten;
-    
-      @Override
+    private Date ngayTao;
+    private Date ngaySua;
+    private Integer TrangThai;
+    @Override
     public String toString() {
         return Ten;
     }

@@ -7,7 +7,7 @@ package com.mycompany.DomainModels;
 
 /**
  *
- * @author nqtin
+ * @author kunrl
  */
 public class ThongKe {
     private String Ngay;

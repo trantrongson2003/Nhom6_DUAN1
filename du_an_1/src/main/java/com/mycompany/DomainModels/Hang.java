@@ -5,6 +5,7 @@
 package com.mycompany.DomainModels;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,6 +35,8 @@ public class Hang implements Serializable{
     private String Id;
     private String Ma;
     private String Ten;
+    private Date ngayTao;
+    private Date ngaySua;
     private Integer TrangThai;
 
     @Override

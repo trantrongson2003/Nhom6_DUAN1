@@ -20,7 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
- * @author FPT
+ * @author kunrl
  */
 @AllArgsConstructor
 @NoArgsConstructor

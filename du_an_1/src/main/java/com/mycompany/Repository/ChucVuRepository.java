@@ -8,6 +8,7 @@ package com.mycompany.Repository;
 import com.mycompany.DomainModels.ChucVu;
 import com.mycompany.Util.HibernateUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -15,11 +16,11 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author nqtin
+ * @author kunrl
  */
 public class ChucVuRepository {
 
-    //tinhnqph23160
+  
     public List<ChucVu> getAllChucVu() {
         Transaction trans = null;
         List<ChucVu> listcv = new ArrayList();
@@ -31,7 +32,7 @@ public class ChucVuRepository {
         }
         return listcv;
     }
-    //tinhnqph23160
+
 
     public ChucVu getByTen(String ma) {
         ChucVu cv;
@@ -43,7 +44,7 @@ public class ChucVuRepository {
         }
         return cv;
     }
-    //tinhnqph23160
+
 
     public ChucVu insertChucVu(ChucVu cv) {
          try (Session session = HibernateUtil.getFACTORY().openSession()) {
@@ -63,14 +64,14 @@ public class ChucVuRepository {
         }
     }
 
-    public ChucVu updateChucVu(ChucVu cv, String ma, String ten, Integer trangthai) {
+    public ChucVu updateChucVu(ChucVu cv, String ma, String ten, Date ngayTao,Integer trangthai) {
         Transaction trans = null;
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
             trans = sess.beginTransaction();
             cv.setMa(ma);
             cv.setTen(ten);
+            cv.setNgayTao(ngayTao);
             cv.setTrangThai(trangthai);
-
             sess.update(cv);
             trans.commit();
         }
