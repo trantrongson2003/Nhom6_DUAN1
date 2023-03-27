@@ -578,6 +578,7 @@ public class NhanVienPanel extends javax.swing.JPanel {
                 nv.getGioiTinh(), nv.getDiaChi(),
                 nv.getSdt(), nv.getTencv(), nv.gettrangthai()
             });
+           
         }
     }
 

@@ -33,11 +33,12 @@ public class SanPhamForm extends javax.swing.JFrame {
     }
     private void LoadTable() {
         model = (DefaultTableModel) tbl_DongSP.getModel();
-        model.setRowCount(0);
+        
         for (SanPham sp : sanphamser.getAllChucVu()) {
             Object row[] = {sp.getId(), sp.getMa(), sp.getTen(), sp.getNgayTao(), sp.getNgaySua()};
             model.addRow(row);
         }
+        model.setRowCount(0);
     }
     private SanPham getForm() {
         String id = lblID.getText().trim();

@@ -66,7 +66,7 @@ public class LoaiSPRespository {
     public void delete(String Ma){
         try {
             Connection conn =DBContext.getConnection();
-            String sql="DELETE LoaiSP WHERE Ma=?";
+            String sql="DELETE from LoaiSP WHERE Ma=?";
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setString(1,Ma );
             ps.execute();

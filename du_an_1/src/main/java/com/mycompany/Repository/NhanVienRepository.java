@@ -127,7 +127,7 @@ public class NhanVienRepository {
     public void deleteNhanVien(String ma) {
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
             trans = sess.beginTransaction();
-            String hql = "Delete NhanVien c where c.Ma = :ma";
+            String hql = "Delete from NhanVien c where c.Ma = :ma";
             Query query = sess.createQuery(hql);
             query.setParameter("ma", ma);
             query.executeUpdate();

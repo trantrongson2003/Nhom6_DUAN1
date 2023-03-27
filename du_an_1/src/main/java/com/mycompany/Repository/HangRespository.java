@@ -71,7 +71,7 @@ public class HangRespository {
     public void delete(String Id) {
         try {
             Connection conn = DBContext.getConnection();
-            String sql = "DELETE Hang WHERE Id=?";
+            String sql = "DELETE from Hang WHERE Id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, Id);
             ps.execute();

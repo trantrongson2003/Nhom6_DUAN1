@@ -221,8 +221,8 @@ public class NSXForm extends javax.swing.JFrame {
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
-        String ma = txtMa.getText();
-        nsxs.delete(ma);
+        String id = lblID.getText();
+        nsxs.delete(id);
         LoadTable();
         JOptionPane.showMessageDialog(this, "Xóa Thành Công");
     }//GEN-LAST:event_btnXoaActionPerformed

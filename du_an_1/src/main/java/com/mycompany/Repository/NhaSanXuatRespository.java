@@ -71,7 +71,7 @@ public class NhaSanXuatRespository {
     public void delete(String Id) {
         try {
             Connection conn = DBContext.getConnection();
-            String sql = "DELETE NSX WHERE Id=?";
+            String sql = "DELETE from NSX WHERE Id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, Id);
             ps.execute();

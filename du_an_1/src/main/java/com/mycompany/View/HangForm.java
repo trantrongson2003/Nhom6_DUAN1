@@ -216,8 +216,8 @@ public class HangForm extends javax.swing.JFrame {
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
-        String Ma = txtMa.getText();
-        dongService.delete(Ma);
+        String id = lblID.getText();
+        dongService.delete(id);
         LoadTable();
         JOptionPane.showMessageDialog(this, "Xóa Thành Công");
     }//GEN-LAST:event_btnXoaActionPerformed

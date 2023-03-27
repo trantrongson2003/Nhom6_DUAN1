@@ -71,7 +71,7 @@ public class ChatLieuDeGiayRespository {
     public void delete(String Id) {
         try {
             Connection conn = DBContext.getConnection();
-            String sql = "DELETE ChatLieuDeGiay WHERE Id=?";
+            String sql = "DELETE from ChatLieuDeGiay WHERE Id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, Id);
             ps.execute();
