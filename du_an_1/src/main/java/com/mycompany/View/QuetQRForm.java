@@ -364,7 +364,6 @@ public class QuetQRForm extends javax.swing.JFrame implements Runnable, ThreadFa
             }
             BanHangPanel.banHangPanel.txtTongTien.setText(dmf.format(tongTien) + "");
             BanHangPanel.banHangPanel.txtKhachCanTra.setText(dmf.format(tongTien) + "");
-            BanHangPanel.banHangPanel.txtTongTienDatHang.setText(dmf.format(tongTien) + "");   
         } catch (Exception e) {
 
         } finally {
