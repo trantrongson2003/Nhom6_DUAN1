@@ -19,6 +19,7 @@ public interface SanPhamService {
 
     public Integer updateSP(SanPham sp);
     
+    void delete(String Ma);
 
 
 }

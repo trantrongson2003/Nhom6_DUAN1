@@ -33,12 +33,12 @@ public class SanPhamForm extends javax.swing.JFrame {
     }
     private void LoadTable() {
         model = (DefaultTableModel) tbl_DongSP.getModel();
-        
+        model.setRowCount(0);
         for (SanPham sp : sanphamser.getAllChucVu()) {
             Object row[] = {sp.getId(), sp.getMa(), sp.getTen(), sp.getNgayTao(), sp.getNgaySua()};
             model.addRow(row);
         }
-        model.setRowCount(0);
+        
     }
     private SanPham getForm() {
         String id = lblID.getText().trim();
@@ -69,6 +69,7 @@ public class SanPhamForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -123,6 +124,13 @@ public class SanPhamForm extends javax.swing.JFrame {
             }
         });
 
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,6 +150,8 @@ public class SanPhamForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnXoa)
+                                .addGap(66, 66, 66)
                                 .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtMa, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTen, javax.swing.GroupLayout.Alignment.LEADING))
@@ -181,7 +191,8 @@ public class SanPhamForm extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
-                    .addComponent(btnSua))
+                    .addComponent(btnSua)
+                    .addComponent(btnXoa))
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -209,7 +220,10 @@ public class SanPhamForm extends javax.swing.JFrame {
             return;
         }
         sanphamser.addSP(sp);
+        
         LoadTable();
+        SanPhamChiTietPanel.sanPhamPanel.loadCCBSanPham();
+        JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
 //        SanPhamChiTietPanel.sanPhamPanel.loadCBBHang();
 //        JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnThemActionPerformed
@@ -241,6 +255,23 @@ public class SanPhamForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+         int index = tbl_DongSP.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(this, "Chọn Dòng Để Xóa");
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this, "Bạn Muốn Xóa Không?", "Xóa", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+        String id = lblID.getText();
+        sanphamser.delete(id);
+        LoadTable();
+        JOptionPane.showMessageDialog(this, "Xóa Thành Công");
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +326,7 @@ public class SanPhamForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -36,6 +36,11 @@ public class SanPhamServiceImp implements SanPhamService{
         return sanPhamRepository.updateSP(sp);
     }
 
+    @Override
+    public void delete(String Ma) {
+sanPhamRepository.delete(Ma);
+    }
+
 
 
 

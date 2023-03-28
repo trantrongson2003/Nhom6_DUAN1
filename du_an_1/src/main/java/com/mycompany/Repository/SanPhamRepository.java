@@ -56,4 +56,16 @@ public class SanPhamRepository {
         }
         return listcv;
     }
+    
+    public void delete(String Id) {
+        try {
+            Connection conn = DBContext.getConnection();
+            String sql = "DELETE from SanPham WHERE Id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, Id);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
