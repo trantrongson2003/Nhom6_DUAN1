@@ -205,6 +205,9 @@ public class LoginForm extends javax.swing.JDialog {
             }
         } catch (Exception e) {
         }
+
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassWordActionPerformed
