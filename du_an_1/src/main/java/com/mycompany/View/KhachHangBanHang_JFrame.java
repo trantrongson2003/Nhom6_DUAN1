@@ -242,12 +242,12 @@ public class KhachHangBanHang_JFrame extends javax.swing.JFrame {
             int row = tblDSKH.getSelectedRow();
             for (int i = 0; i < kHService.getAllKH().size(); i++) {
                 if (kHService.getAllKH().get(i).getMaKh().equals(tblDSKH.getValueAt(row, 0))) {
-                    BanHangPanel.banHangPanel.idFromKH = kHService.getAllKH().get(i).getId();
+                    BanHangsPenal.banHangsPanel.idFormKH = kHService.getAllKH().get(i).getId();
                 }
             }
 
-            BanHangPanel.banHangPanel.txtSDTKH.setText(tblDSKH.getValueAt(row, 3).toString());
-            BanHangPanel.banHangPanel.txtTenKH.setText(tblDSKH.getValueAt(row, 1).toString());
+            BanHangsPenal.banHangsPanel.txtSDTKH.setText(tblDSKH.getValueAt(row, 3).toString());
+             BanHangsPenal.banHangsPanel.txtHoTenKH.setText(tblDSKH.getValueAt(row, 1).toString());
             this.dispose();
         } catch (Exception e) {
         }
@@ -327,6 +327,8 @@ public class KhachHangBanHang_JFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(KhachHangBanHang_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

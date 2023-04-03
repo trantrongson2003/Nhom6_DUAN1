@@ -202,7 +202,6 @@ public class HoaDonRepository {
             Query q = sess.createQuery(hql);
             q.setParameter("ngayttoan", hd.getNgayThanhToan());
             q.setParameter("tong", hd.getTongTien());
-            q.setParameter("ngayDaNhanHang", hd.getNgayDaNhanHang());
             q.setParameter("tt", hd.getTrangThai());
             q.setParameter("id", hd.getId());
             row = q.executeUpdate();
@@ -226,13 +225,7 @@ public class HoaDonRepository {
             q.setParameter("trangThai", hd.getTrangThai());
             q.setParameter("id", hd.getId());
             q.setParameter("kh", hd.getKhachHang());
-            q.setParameter("ngayShip", hd.getNgayShip());
-            q.setParameter("ngayDuKien", hd.getNgayNhanHang());
-            q.setParameter("phiShip", hd.getPhiShip());
             q.setParameter("gc", hd.getGhiChu());
-            q.setParameter("dc", hd.getDiaChiGiaoHang());
-            q.setParameter("sdt", hd.getSDTNguoiGiaoHang());
-
             row = q.executeUpdate();
             sess.getTransaction().commit();
         } catch (Exception e) {

@@ -38,14 +38,8 @@ public class HoaDonServiceIpm implements HoaDonService {
             hoaDonViewModels.setNgayTao(hoaDon.getNgayTao());
             hoaDonViewModels.setTenNV(hoaDon.getNhanVien().getHoTen());
             hoaDonViewModels.setTrangThai(hoaDon.getTrangThai());
-            hoaDonViewModels.setNgayShip(hoaDon.getNgayShip());
             hoaDonViewModels.setKhachHang(hoaDon.getKhachHang());
-            hoaDonViewModels.setNgayNhanHang(hoaDon.getNgayNhanHang());
-            hoaDonViewModels.setNgayDaNhanHang(hoaDon.getNgayDaNhanHang());
-            hoaDonViewModels.setPhiShip(hoaDon.getPhiShip());
-            hoaDonViewModels.setDiaChiNhan(hoaDon.getDiaChiGiaoHang());
             hoaDonViewModels.setGhiChu(hoaDon.getGhiChu());
-            hoaDonViewModels.setSDTNguoiGiaoHang(hoaDon.getSDTNguoiGiaoHang());
             lst_view.add(hoaDonViewModels);
         }
         return lst_view;
@@ -91,14 +85,8 @@ public class HoaDonServiceIpm implements HoaDonService {
             hoaDonViewModels.setNgayTao(hoaDon.getNgayTao());
             hoaDonViewModels.setTenNV(hoaDon.getNhanVien().getHoTen());
             hoaDonViewModels.setTrangThai(hoaDon.getTrangThai());
-            hoaDonViewModels.setNgayShip(hoaDon.getNgayShip());
             hoaDonViewModels.setKhachHang(hoaDon.getKhachHang());
-            hoaDonViewModels.setNgayNhanHang(hoaDon.getNgayNhanHang());
-            hoaDonViewModels.setNgayDaNhanHang(hoaDon.getNgayDaNhanHang());
-            hoaDonViewModels.setPhiShip(hoaDon.getPhiShip());
-            hoaDonViewModels.setDiaChiNhan(hoaDon.getDiaChiGiaoHang());
             hoaDonViewModels.setGhiChu(hoaDon.getGhiChu());
-            hoaDonViewModels.setSDTNguoiGiaoHang(hoaDon.getSDTNguoiGiaoHang());
             lst_view.add(hoaDonViewModels);
         }
         return lst_view;

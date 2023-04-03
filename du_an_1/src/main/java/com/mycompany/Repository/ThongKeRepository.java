@@ -70,7 +70,7 @@ public class ThongKeRepository {
                 ChatLieuDeGiay ncc = new ChatLieuDeGiay();
                 ncc.setTen(tenncc);
             
-                ChiTietSP tk = new ChiTietSP(null,sp,null, nsx, ms, hang, ncc, null,null,size, soluong, GiaNhap, GiaBan,null,null);
+                ChiTietSP tk = new ChiTietSP(null,sp,null, nsx, ms, hang, ncc, null,size, soluong, GiaNhap, GiaBan,null,null);
                 list.add(tk);
             }
         } catch (Exception e) {

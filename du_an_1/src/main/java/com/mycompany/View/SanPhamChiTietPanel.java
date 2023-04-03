@@ -30,7 +30,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
     LoaiSPService loaiSPService = new LoaiSPServiceImp();
     ChatLieuDeGiayService nhaCungCapService = new ChatLieuDeGiayServiceImp();
     NhaSanXuatService nhaSanXuatService = new NhaSanXuatServiceImp();
-    ChiTietSPService ctspsService = new CTSPSerivceIpm();
+    ChiTietSanPhamService ctspsService = new ChiTietSanPhamImpl();
     SanPhamService spService = new SanPhamServiceImp();
     public static SanPhamChiTietPanel sanPhamPanel;
 
@@ -849,7 +849,6 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                 ctsp.setChatLieuDeGiay(ncc);
                 ctsp.setNsx(nsx);
                 ctsp.setHang(hang);
-                ctsp.setThoiGianBH(5);
                 ctsp.setMoTa("Không");
                 ctsp.setSize((Integer.valueOf(cbbSize.getSelectedItem().toString())));
                 ctsp.setSoLuong(Integer.valueOf(txtSoLuong.getText()));
@@ -896,7 +895,6 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                 }
 
             }
-            ctspsService.deletePGG(id);
             ctspsService.UpdateThungRac(id);
             fillTable();
             JOptionPane.showMessageDialog(this, "Đã Được Chuyển Đến Thùng Rác");

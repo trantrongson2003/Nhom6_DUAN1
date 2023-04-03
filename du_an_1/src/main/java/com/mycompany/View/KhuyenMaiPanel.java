@@ -13,8 +13,10 @@ import com.mycompany.DomainModels.ChatLieuDeGiay;
 import com.mycompany.DomainModels.NhaSanXuat;
 import com.mycompany.DomainModels.PhieuGiamGia;
 import com.mycompany.DomainModels.SanPham;
-import com.mycompany.Service.ChiTietSPService;
-import com.mycompany.Service.IPM.CTSPSerivceIpm;
+import com.mycompany.Service.ChiTietSanPhamService;
+import com.mycompany.Service.IPM.ChiTietSanPhamImpl;
+//import com.mycompany.Service.ChiTietSPService;
+//import com.mycompany.Service.IPM.CTSPSerivceIpm;
 import com.mycompany.Service.IPM.KhuyenMaiServiceImp;
 import com.mycompany.Service.IPM.SanPhamServiceImp;
 import com.mycompany.Service.KhuyenMaiService;
@@ -42,7 +44,7 @@ public class KhuyenMaiPanel extends javax.swing.JPanel {
     DefaultTableModel model;
     SanPhamService sanPhamService = new SanPhamServiceImp();
     private KhuyenMaiService khuyenMaiService = new KhuyenMaiServiceImp();
-    ChiTietSPService chiTietSPService = new CTSPSerivceIpm();
+    ChiTietSanPhamService chiTietSPService = new ChiTietSanPhamImpl();
 
     public KhuyenMaiPanel() {
         initComponents();

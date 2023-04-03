@@ -2,7 +2,7 @@ package com.mycompany.main;
 
 import com.mycompany.DomainModels.KhachHang;
 import com.mycompany.DomainModels.NhanVien;
-import com.mycompany.View.BanHangPanel;
+import com.mycompany.View.BanHangsPenal;
 import com.mycompany.View.HoaDonPanel;
 import com.mycompany.View.KhachHangPanel;
 import com.mycompany.View.KhuyenMaiPanel;
@@ -41,7 +41,7 @@ public class TrangChuForm extends javax.swing.JFrame {
             @Override
             public void selected(int index) {
                 if (index == 0) {
-                    setForm(new BanHangPanel(nv));
+                    setForm(new BanHangsPenal(nv));
                 } else if (index == 1) {
                     setForm(new ThongKePanel());
                 } else if (index == 2) {

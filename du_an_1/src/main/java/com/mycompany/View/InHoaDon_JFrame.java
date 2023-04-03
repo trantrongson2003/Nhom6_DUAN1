@@ -24,15 +24,15 @@ public class InHoaDon_JFrame extends javax.swing.JFrame {
         hdctService = new HDCTServiceIpm();
   
         int stt = 0;
-        txtHoaDonMem.append("\t       Shop Bán Giày Thể Thao Nam_Team 2 \t \n\n");
+        txtHoaDonMem.append("\t       Shop Bán Giày Thể Thao Nam_Team 6 \t \n\n");
         txtHoaDonMem.append("\t\t Hóa Đơn Bán Hàng \t\t\n");
         txtHoaDonMem.append("\n==========================================================================\n\n");
-        txtHoaDonMem.append("Mã HD: " +BanHangPanel.banHangPanel.txtMaHD.getText()+"\t" + "Ngày Tạo: " + BanHangPanel.banHangPanel.txtNgayTao.getText() +"\n");
+        txtHoaDonMem.append("Mã HD: " +BanHangsPenal.banHangsPanel.txtMaHD.getText()+"\t" + "Ngày Tạo: " + BanHangsPenal.banHangsPanel.txtNgayTao.getText() +"\n");
         txtHoaDonMem.append("\n STT |\t Mã SP |\t Tên SP |\t Số Lượng |\t Đơn Gía |\t Thành Tiền\n");
-        for (GioHangViewModel gh : hdctService.getAllHDCT(BanHangPanel.banHangPanel.txtMaHD.getText())) {
+        for (GioHangViewModel gh : hdctService.getAllHDCT(BanHangsPenal.banHangsPanel.txtMaHD.getText())) {
             txtHoaDonMem.append(++stt+ "\t" + gh.getMaSP() +"\t" + gh.getTenSP() +"\t " + gh.getSoLuong()+"\t" + gh.getDonGia() +"\t" +gh.getThanhTien()+"\n");
         }
-        txtHoaDonMem.append("\n\t\t\t\t Tổng Tiền: "+BanHangPanel.banHangPanel.txtTongTien.getText()+"\n\n");
+        txtHoaDonMem.append("\n\t\t\t\t Tổng Tiền: "+BanHangsPenal.banHangsPanel.txtTongTien.getText()+"\n\n");
          txtHoaDonMem.append("\n=========================================================================\n\n");
         txtHoaDonMem.append("\t             Xin Cảm Ơn Qúy Khách\t\t\n");
         txtHoaDonMem.append("\t   Chúc Qúy Khách 1 ngày Mới Tốt Lành !\t\n");
@@ -136,6 +136,7 @@ public class InHoaDon_JFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InHoaDon_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

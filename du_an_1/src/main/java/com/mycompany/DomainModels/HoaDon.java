@@ -44,14 +44,8 @@ public class HoaDon implements Serializable{
     private NhanVien nhanVien;
     private Date NgayTao;
     private Date NgayThanhToan;
-    private Date NgayShip;
-    private Date NgayNhanHang;
-    private Date NgayDaNhanHang;
-    private BigDecimal PhiShip;
-    private String DiaChiGiaoHang;
     private BigDecimal TongTien;
     private String GhiChu;
-    private String SDTNguoiGiaoHang;
     private Integer TrangThai;
 
     public HoaDon(String MaHD, Date NgayThanhToan, BigDecimal TongTien, Integer TrangThai) {

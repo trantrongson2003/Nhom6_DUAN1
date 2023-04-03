@@ -57,7 +57,6 @@ public class ChiTietSP implements Serializable{
     @ManyToOne
     @JoinColumn(name = "IdCLDG")
     private ChatLieuDeGiay chatLieuDeGiay;
-    private Integer ThoiGianBH;
     private String MoTa;
     private Integer Size;
     private Integer SoLuong;

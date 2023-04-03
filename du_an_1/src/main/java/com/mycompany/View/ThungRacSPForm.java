@@ -5,8 +5,8 @@
 package com.mycompany.View;
 
 import com.mycompany.DomainModels.ChiTietSP;
-import com.mycompany.Service.ChiTietSPService;
-import com.mycompany.Service.IPM.CTSPSerivceIpm;
+import com.mycompany.Service.ChiTietSanPhamService;
+import com.mycompany.Service.IPM.ChiTietSanPhamImpl;
 import com.mycompany.ViewModel.NhanVien.NhanVienViewModel;
 import com.mycompany.ViewModel.SanPham.SanPhamViewModelSP;
 import java.awt.event.MouseEvent;
@@ -24,8 +24,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
     /**
      * Creates new form ThungRacKHForm
      */
-    ChiTietSPService chiTietSPService = new CTSPSerivceIpm();
-    ChiTietSPService ctsp = new CTSPSerivceIpm();
+    ChiTietSanPhamService chiTietSPService = new ChiTietSanPhamImpl();
 
     public ThungRacSPForm() {
         initComponents();
@@ -36,7 +35,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
     private void LoadTable() {
         DefaultTableModel model = (DefaultTableModel) tblThungRacSP.getModel();
         model.setRowCount(0);
-        for (SanPhamViewModelSP nv : ctsp.getAllSPNgungKinhDoanh()) {
+        for (SanPhamViewModelSP nv : chiTietSPService.getAllSPNgungKinhDoanh()) {
             model.addRow(new Object[]{
                 nv.getMa(), nv.getTen(), nv.getMauSac(), nv.getNhaSanXuat(),
                 nv.getChatLieuDeGiay(), nv.getHang(),
