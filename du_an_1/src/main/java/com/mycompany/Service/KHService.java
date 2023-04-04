@@ -31,7 +31,8 @@ public interface KHService {
 
     ArrayList<KhachHang> find(String sdt);
 
-    //    namtvph23205
+     List<KhachHang> search(String searchKey);
+     
     ArrayList<KhachHang> getListThungRacKH();
 
     Integer updateThungRacKH(String ma);

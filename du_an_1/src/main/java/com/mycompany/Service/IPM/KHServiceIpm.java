@@ -109,4 +109,9 @@ public class KHServiceIpm implements KHService {
      return kHRepository.totalCount();
     }
 
+    @Override
+    public List<KhachHang> search(String searchKey) {
+        return kHRepository.search(searchKey);
+    }
+
 }

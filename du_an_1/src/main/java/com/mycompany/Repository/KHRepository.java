@@ -22,7 +22,7 @@ import org.hibernate.query.Query;
  */
 public class KHRepository {
     
-    //HungLQPH20358 
+   
     public List<KhachHang> getAllKH(){
         List<KhachHang> lst = new ArrayList<>();
         String hql = "Select kh From KhachHang kh";
@@ -63,8 +63,7 @@ public class KHRepository {
         }
         return 1;
     }
-    //HungLQPH20358
-    //-----------------------
+    
     public ArrayList<KhachHang> getAllKhachHang() {
         ArrayList<KhachHang> listKH = new ArrayList<>();
         try {
@@ -168,7 +167,18 @@ public class KHRepository {
         return list;
     }
     
-     //namtvph23205
+   public List<KhachHang> search(String sdt) {
+        List<KhachHang> listCTSP = new ArrayList<>();
+        try ( Session session = HibernateUtil.getFACTORY().openSession()) {
+            Query query = session.createQuery("FROM KhachHang WHERE Sdt=:sdt "
+            );
+            query.setParameter("sdt", sdt);
+            listCTSP = query.getResultList();
+            return listCTSP;
+        } catch (Exception e) {
+        }
+        return null;
+    }
     
       public ArrayList<KhachHang> getAllThungRacKH() {
         ArrayList<KhachHang> listKH = new ArrayList<>();
