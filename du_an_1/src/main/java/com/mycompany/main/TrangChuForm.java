@@ -47,14 +47,12 @@ public class TrangChuForm extends javax.swing.JFrame {
                 } else if (index == 2) {
                     setForm(new HoaDonPanel());
                 } else if (index == 3) {
-                    setForm(new KhuyenMaiPanel());
-                } else if (index == 4) {
                     setForm(new SanPhamChiTietPanel());
-                } else if (index == 5) {
+                } else if (index == 4) {
                     setForm(new NhanVienPanel());
-                } else if (index == 6) {
+                } else if (index == 5) {
                     setForm(new KhachHangPanel());
-                } else if (index == 7) {
+                } else if (index == 6) {
                     dispose();
                     log.setVisible(true);
                 }
