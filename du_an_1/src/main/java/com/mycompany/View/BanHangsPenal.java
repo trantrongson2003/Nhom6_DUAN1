@@ -159,7 +159,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
         txtNgayTao = new javax.swing.JLabel();
         txtHoTenKH = new javax.swing.JTextField();
         txtSDTKH = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnTTKH = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -200,7 +200,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã HĐ", "Ngày Tạo", "Tên Người Tạo", "Trạng thái"
             }
         ));
         tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,7 +263,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sản phẩm", "Tên sản phẩm", "Số lượng", "Đơn giá"
             }
         ));
         jScrollPane3.setViewportView(tblGioHang);
@@ -382,6 +382,12 @@ public class BanHangsPenal extends javax.swing.JPanel {
         txtNgayTao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtNgayTao.setText("--");
 
+        btnTTKH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTTKHActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -401,7 +407,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(txtSDTKH, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnTTKH, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -429,7 +435,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
                     .addComponent(txtNgayTao))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTTKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSDTKH, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
@@ -887,11 +893,15 @@ public class BanHangsPenal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btnTTKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTTKHActionPerformed
+      new KhachHangBanHang_JFrame().setVisible(true);
+    }//GEN-LAST:event_btnTTKHActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTTKH;
     private javax.swing.JButton btnTaoHoaDon;
     private javax.swing.JComboBox<String> cbbHTTT;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
