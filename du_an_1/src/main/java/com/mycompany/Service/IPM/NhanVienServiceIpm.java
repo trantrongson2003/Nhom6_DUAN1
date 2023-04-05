@@ -96,4 +96,9 @@ public class NhanVienServiceIpm implements NhanVienService {
         rep.KhoiPhucNV(ma);
     }
 
+    @Override
+    public List<NhanVien> search(String searchkey) {
+return rep.search(searchkey);
+    }
+
 }

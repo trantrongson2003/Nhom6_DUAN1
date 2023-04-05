@@ -31,4 +31,6 @@ public interface NhanVienService {
     void KhoiPhucNV(String ma);
 
     List<NhanVienViewModel> getListThungRacNV();
+    
+    List<NhanVien> search(String searchkey);
 }
