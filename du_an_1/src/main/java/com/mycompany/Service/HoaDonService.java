@@ -42,7 +42,6 @@ public interface HoaDonService {
 
     Integer updateHDDatHangThanhCong(HoaDon hd);
     
-    //tinhph23160-----------------
     ArrayList<HoaDonViewModels> finbyngaythanhToan(String hd);
 
     ArrayList<HoaDonViewModels> finbyngaytrangThai(int ma);

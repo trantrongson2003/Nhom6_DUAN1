@@ -14,7 +14,6 @@ import java.util.List;
  * @author nqtin
  */
 public interface ChucVuSevice {
-    //tinhnqph23160
 
     List<ChucVu> getListChucVu();
 

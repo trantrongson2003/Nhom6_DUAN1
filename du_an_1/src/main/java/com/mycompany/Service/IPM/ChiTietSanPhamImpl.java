@@ -224,4 +224,42 @@ public class ChiTietSanPhamImpl implements ChiTietSanPhamService {
         return lst_view;
     }
 
+    @Override
+    public List<SanPhamViewModelBanHang> getAllBySearch(String timKiem) {
+            List<ChiTietSP> lst = chitietsprepo.getAllBySearch(timKiem);
+        List<SanPhamViewModelBanHang> lst_view = new ArrayList<>();
+        for (ChiTietSP chiTietSP : lst) {
+            SanPhamViewModelBanHang sp = new SanPhamViewModelBanHang();
+            sp.setId(chiTietSP.getId());
+            sp.setMaSP(chiTietSP.getSanPham().getMa());
+            sp.setTenSP(chiTietSP.getSanPham().getTen());
+            sp.setLoaiSP(chiTietSP.getLoaiSP().getTen());
+            sp.setMauSac(chiTietSP.getMauSac().getTen());
+            sp.setSize(chiTietSP.getSize());
+            sp.setSoLunog(chiTietSP.getSoLuong());
+            sp.setDonGia(chiTietSP.getGiaBan());
+            lst_view.add(sp);
+        }
+        return lst_view;
+    }
+
+    @Override
+    public List<SanPhamViewModelBanHang> getAllByKhoangGia(BigDecimal gia, BigDecimal gia2) {
+             List<ChiTietSP> lst = chitietsprepo.getAllByKhoangGia(gia, gia2);
+        List<SanPhamViewModelBanHang> lst_view = new ArrayList<>();
+        for (ChiTietSP chiTietSP : lst) {
+            SanPhamViewModelBanHang sp = new SanPhamViewModelBanHang();
+            sp.setId(chiTietSP.getId());
+            sp.setMaSP(chiTietSP.getSanPham().getMa());
+            sp.setTenSP(chiTietSP.getSanPham().getTen());
+            sp.setLoaiSP(chiTietSP.getLoaiSP().getTen());
+            sp.setMauSac(chiTietSP.getMauSac().getTen());
+            sp.setSize(chiTietSP.getSize());
+            sp.setSoLunog(chiTietSP.getSoLuong());
+            sp.setDonGia(chiTietSP.getGiaBan());
+            lst_view.add(sp);
+        }
+        return lst_view;
+    }
+
 }

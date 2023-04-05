@@ -43,4 +43,8 @@ public interface ChiTietSanPhamService {
     List<SanPhamViewModelSP> getSPBySize(Integer size, Integer size2);
 
     List<SanPhamViewModelSP> getSPBySearch(String timKiem);
+
+    List<SanPhamViewModelBanHang> getAllBySearch(String timKiem);
+
+    List<SanPhamViewModelBanHang> getAllByKhoangGia(BigDecimal gia, BigDecimal gia2) ;
 }

@@ -130,12 +130,11 @@ public class HoaDonRepository {
 
     public List<HoaDon> getAllHDByTrangThai(int tt) {
         List<HoaDon> lst = new ArrayList<>();
-        String hql = "select hd From HoaDon hd join hd.nhanVien nv where hd.TrangThai = :tt1 or hd.TrangThai = :tt2 or hd.TrangThai = :tt3";
+        String hql = "select hd From HoaDon hd join hd.nhanVien nv where hd.TrangThai = :tt1 or hd.TrangThai = :tt2";
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
             Query q = sess.createQuery(hql);
             q.setParameter("tt1", tt);
             q.setParameter("tt2", tt);
-            q.setParameter("tt3", tt);
             lst = q.getResultList();
         } catch (Exception e) {
             e.printStackTrace();

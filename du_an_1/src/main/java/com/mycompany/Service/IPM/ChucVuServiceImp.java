@@ -17,7 +17,6 @@ import java.util.List;
  */
 public class ChucVuServiceImp implements ChucVuSevice{
     private ChucVuRepository rep;
-     //tinhnqph23160
     
     public ChucVuServiceImp(){
         rep = new ChucVuRepository();

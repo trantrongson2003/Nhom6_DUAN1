@@ -1,4 +1,5 @@
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\DomainModels\ChiTietSP.java
+F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\ChiTietSanPhamRepository.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\ThongKeRepository.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\BanHang\HoaDonViewModels.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\HangForm.java
@@ -8,7 +9,6 @@ F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\NSXForm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\DomainModels\ThongKe.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\HoaDonService.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\ThongKeService.java
-F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\CTSPSerivceIpm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\KhuyenMai\KhuyenMaiViewModel.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\HDCTServiceIpm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\event\EventMenu.java
@@ -47,8 +47,6 @@ F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\SanPham
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\HoaDonRepository.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\HoaDonServiceIpm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\NhanVienServiceIpm.java
-F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\ChiTietSPService.java
-F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\ChiTietSPRepository.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\hoaDon\QLHoaDonViewModel.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\KhachHangBanHang_JFrame.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Util\HibernateUtil.java
@@ -73,6 +71,7 @@ F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\KHRepo
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\SanPhamChiTietPanel.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\KhuyenMaiRepository.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Repository\SanPhamRepository.java
+F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\ChiTietSanPhamImpl.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\LoginForm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\DomainModels\PhieuGiamGia.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\DomainModels\LoaiSP.java
@@ -99,11 +98,11 @@ F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\DomainModels\HoaD
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\SanPhamForm.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\swing\MenuItem.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\nhaSanXuat\NSXViewModel.java
+F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\BanHangsPenal.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\HoaDonPanel.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\HangServiceImp.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\ViewModel\BanHang\GioHangViewModel.java
+F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\ChiTietSanPhamService.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\IPM\ChucVuServiceImp.java
-F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\BanHangPanel.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\Service\HangService.java
 F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\KhuyenMaiPanel.java
-F:\Duan1_nhom6\Nhom6_DUAN1\du_an_1\src\main\java\com\mycompany\View\QuetQRForm.java
