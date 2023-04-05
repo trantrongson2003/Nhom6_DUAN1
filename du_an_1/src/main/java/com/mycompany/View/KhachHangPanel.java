@@ -75,7 +75,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
                 kh.getNgaySinh(),
                 kh.getSdt(),
                 kh.getDiaChi(),
-                kh.getTrangThai()==0?"Lâu năm":"Mới"
+                kh.getTrangThai()==1?"Lâu năm":"Mới"
             });
         };
     }
@@ -90,6 +90,8 @@ loadFind(svKH.find(txt_find.getText().trim()));
         DeleteMenu = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jRadioButton1 = new javax.swing.JRadioButton();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnThem = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -137,6 +139,10 @@ loadFind(svKH.find(txt_find.getText().trim()));
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         setPreferredSize(new java.awt.Dimension(892, 595));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(892, 595));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -303,14 +309,14 @@ loadFind(svKH.find(txt_find.getText().trim()));
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(457, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -334,7 +340,6 @@ loadFind(svKH.find(txt_find.getText().trim()));
         });
         jScrollPane1.setViewportView(tblBang);
 
-        txt_find.setText("Nhập Sdt KH");
         txt_find.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txt_findCaretUpdate(evt);
@@ -343,6 +348,11 @@ loadFind(svKH.find(txt_find.getText().trim()));
         txt_find.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_findActionPerformed(evt);
+            }
+        });
+        txt_find.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_findKeyReleased(evt);
             }
         });
 
@@ -382,9 +392,9 @@ loadFind(svKH.find(txt_find.getText().trim()));
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(770, Short.MAX_VALUE)
+                .addContainerGap(765, Short.MAX_VALUE)
                 .addComponent(txt_find, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -400,7 +410,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
                 .addComponent(btnCuoi)
                 .addGap(27, 27, 27)
                 .addComponent(lblTotal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,23 +430,62 @@ loadFind(svKH.find(txt_find.getText().trim()));
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 387, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1122, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 41, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 41, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 388, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 841, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void DeleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMenuActionPerformed
+        KhachHang kh = getFormData();
+
+        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (tb == JOptionPane.YES_OPTION) {
+            svKH.DELETE(kh.getMa());
+            loadTableChiTietSP(svKH.getList());
+            JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
+        } else {
+            JOptionPane.showMessageDialog(this, "Đã hủy!");
+        }
+
+    }//GEN-LAST:event_DeleteMenuActionPerformed
+
+    private void txt_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_findActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_findActionPerformed
 
     private void btnThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemKHActionPerformed
         int row = tblBang.getSelectedRow();
@@ -460,8 +509,8 @@ loadFind(svKH.find(txt_find.getText().trim()));
         KhachHang kh = getFormData();
         int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn Sửa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (tb == JOptionPane.YES_OPTION) {
-             svKH.UPDATE(kh, kh.getMa());
-            loadTableChiTietSP(svKH.getList());
+            svKH.UPDATE(kh, kh.getMa());
+
             JOptionPane.showMessageDialog(this, "Sửa Thành Công !");
         } else {
             JOptionPane.showMessageDialog(this, "Đã hủy!");
@@ -477,8 +526,27 @@ loadFind(svKH.find(txt_find.getText().trim()));
         txtDiaChi.setText("");
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
+    private void btnXoaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKHActionPerformed
+        KhachHang kh = getFormData();
+
+        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (tb == JOptionPane.YES_OPTION) {
+            svKH.DELETE(kh.getMa());
+            loadTableChiTietSP(svKH.getList());
+            JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
+        } else {
+            JOptionPane.showMessageDialog(this, "Đã hủy!");
+        }
+        loadFind(svKH.find(txt_find.getText().trim()));
+    }//GEN-LAST:event_btnXoaKHActionPerformed
+
+    private void btnThungRacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThungRacActionPerformed
+        ThungRacKHForm trkh = new ThungRacKHForm();
+        trkh.setVisible(true);
+    }//GEN-LAST:event_btnThungRacActionPerformed
+
     private void tblBangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBangMouseClicked
-        int index = tblBang.getSelectedRow();
+       int index = tblBang.getSelectedRow();
         txtMa.setText(tblBang.getValueAt(index, 0).toString());
         txtTen.setText(tblBang.getValueAt(index, 1).toString());
 
@@ -489,19 +557,10 @@ loadFind(svKH.find(txt_find.getText().trim()));
 
         if (tblBang.getValueAt(index, 5).toString().equals("Mới")) {
             rdMoi.setSelected(true);
-        }
-        if (tblBang.getValueAt(index, 5).toString().equals("Lâu Năm")) {
+        } else  {
             rdLauNam.setSelected(true);
         }
     }//GEN-LAST:event_tblBangMouseClicked
-
-    private void txt_findCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txt_findCaretUpdate
-       String timkiem = txt_find.getText();
-this.svKH.search(timkiem);
-loadTableChiTietSP(svKH.getList());
-        
-         loadFind(svKH.find(txt_find.getText().trim()));
-    }//GEN-LAST:event_txt_findCaretUpdate
 
     private void tblBangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBangMouseReleased
         if (evt.getButton() == MouseEvent.BUTTON3) {
@@ -509,48 +568,26 @@ loadTableChiTietSP(svKH.getList());
                 PopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
             }
         }
-
     }//GEN-LAST:event_tblBangMouseReleased
 
-    private void DeleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMenuActionPerformed
-        KhachHang kh = getFormData();
+    private void txt_findCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txt_findCaretUpdate
+        String timkiem = txt_find.getText();
+        this.svKH.search(timkiem);
+        loadTableChiTietSP(svKH.getList());
 
-        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
-        if (tb == JOptionPane.YES_OPTION) {
-            svKH.updateThungRacKH(kh.getMa());
-            loadTableChiTietSP(svKH.getList());
-            JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
-        } else {
-            JOptionPane.showMessageDialog(this, "Đã hủy!");
-        }
+        loadFind(svKH.find(txt_find.getText().trim()));
+    }//GEN-LAST:event_txt_findCaretUpdate
 
-    }//GEN-LAST:event_DeleteMenuActionPerformed
-
-    private void btnXoaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKHActionPerformed
-        KhachHang kh = getFormData();
-
-        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
-        if (tb == JOptionPane.YES_OPTION) {
-             svKH.updateThungRacKH(kh.getMa());
-            loadTableChiTietSP(svKH.getList());
-            JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
-        } else {
-            JOptionPane.showMessageDialog(this, "Đã hủy!");
-        }
-         loadFind(svKH.find(txt_find.getText().trim()));
-    }//GEN-LAST:event_btnXoaKHActionPerformed
-
-    private void btnThungRacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThungRacActionPerformed
-        ThungRacKHForm trkh = new ThungRacKHForm();
-        trkh.setVisible(true);
-    }//GEN-LAST:event_btnThungRacActionPerformed
+    private void txt_findKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_findKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_findKeyReleased
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        tranghientai++;
-        if (tranghientai > tongsoTrang - 1) {
-            tranghientai = tongsoTrang - 1;
-        }
-        loadTableChiTietSP(svKH.getList());
+//        tranghientai++;
+//        if (tranghientai > tongsoTrang - 1) {
+//            tranghientai = tongsoTrang - 1;
+//        }
+//        loadTableChiTietSP(svKH.getList());
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -571,10 +608,6 @@ loadTableChiTietSP(svKH.getList());
         loadTableChiTietSP(svKH.getList());
     }//GEN-LAST:event_btnCuoiActionPerformed
 
-    private void txt_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_findActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_findActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DeleteMenu;
@@ -591,6 +624,7 @@ loadTableChiTietSP(svKH.getList());
     private javax.swing.JButton btnXoaKH;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -599,6 +633,7 @@ loadTableChiTietSP(svKH.getList());
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;

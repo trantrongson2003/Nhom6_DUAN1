@@ -61,6 +61,19 @@ public class NhanVienRepository {
         return product;
     }
 
+     public List<NhanVien> search(String searchkey) {
+        List<NhanVien> listCTSP = new ArrayList<>();
+        try ( Session session = HibernateUtil.getFACTORY().openSession()) {
+            Query query = session.createQuery("FROM NhanVien WHERE Ma like concat (:searchkey,'%') "
+                    + "OR Sdt like concat (:searchkey,'%') "
+                    );
+            query.setParameter("searchkey", searchkey);
+            listCTSP = query.getResultList();
+            return listCTSP;
+        } catch (Exception e) {
+        }
+        return null;
+    }
     public NhanVien insertNhanVien(NhanVien nv) {
 
         try (Session session = HibernateUtil.getFACTORY().openSession()) {
