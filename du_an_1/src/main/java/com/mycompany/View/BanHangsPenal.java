@@ -64,15 +64,6 @@ public class BanHangsPenal extends javax.swing.JPanel {
 
     }
 
-    public void LoadHD() {
-        DefaultTableModel tblmodel = (DefaultTableModel) tblHoaDon.getModel();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        tblmodel.setRowCount(0);
-        for (HoaDonViewModels hd : hoadonservice.getAllHD()) {
-            tblmodel.addRow(new Object[]{hd.getMa(), sdf.format(hd.getNgayTao()), hd.getTenNV(), hd.getTrangThai()});
-        }
-    }
-
     public void fillGioHang(String maHd) {
         DefaultTableModel tblModel = (DefaultTableModel) tblGioHang.getModel();
         DecimalFormat dmf = new DecimalFormat("###.####");
@@ -137,21 +128,30 @@ public class BanHangsPenal extends javax.swing.JPanel {
             tblModel.addRow(new Object[]{sp.getMaSP(), sp.getTenSP(), sp.getLoaiSP(), sp.getMauSac(), sp.getSize(), sp.getSoLunog(), sp.getDonGia()});
         }
     }
-    
-      public void fillDSSPByKhoangGia(BigDecimal gia, BigDecimal gia2) {
+
+    public void fillDSSPByKhoangGia(BigDecimal gia, BigDecimal gia2) {
         DefaultTableModel tblModel = (DefaultTableModel) tblSanPham.getModel();
         tblModel.setRowCount(0);
         for (SanPhamViewModelBanHang sp : ctspservice.getAllByKhoangGia(gia, gia2)) {
             tblModel.addRow(new Object[]{sp.getMaSP(), sp.getTenSP(), sp.getLoaiSP(), sp.getMauSac(), sp.getSize(), sp.getSoLunog(), sp.getDonGia()});
         }
     }
-      
-        private void fillHoaDonByTrangThai(int tt) {
+
+    private void fillHoaDonByTrangThai(int tt) {
         DefaultTableModel tblModel = (DefaultTableModel) tblHoaDon.getModel();
         tblModel.setRowCount(0);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         for (HoaDonViewModels hd : hoadonservice.getAllHDByTrangThai(tt)) {
             tblModel.addRow(new Object[]{hd.getMa(), sdf.format(hd.getNgayTao()), hd.getTenNV(), hd.getTrangThai()});
+        }
+    }
+
+    public void LoadHD() {
+        DefaultTableModel tblmodel = (DefaultTableModel) tblHoaDon.getModel();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        tblmodel.setRowCount(0);
+        for (HoaDonViewModels hd : hoadonservice.getAllHD()) {
+            tblmodel.addRow(new Object[]{hd.getMa(), sdf.format(hd.getNgayTao()), hd.getTenNV(), hd.getTrangThai()});
         }
     }
 
@@ -170,6 +170,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
         menuEdit = new javax.swing.JMenuItem();
         menuXoa = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHoaDon = new javax.swing.JTable();
@@ -255,7 +256,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHoaDon);
 
-        buttonGroup1.add(rdAll);
+        buttonGroup2.add(rdAll);
         rdAll.setSelected(true);
         rdAll.setText("Tất cả");
         rdAll.addActionListener(new java.awt.event.ActionListener() {
@@ -264,15 +265,20 @@ public class BanHangsPenal extends javax.swing.JPanel {
             }
         });
 
-        buttonGroup1.add(rdChuaThanhToan);
+        buttonGroup2.add(rdChuaThanhToan);
         rdChuaThanhToan.setText("Chưa thanh toán");
+        rdChuaThanhToan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rdChuaThanhToanMouseClicked(evt);
+            }
+        });
         rdChuaThanhToan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdChuaThanhToanActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rdChoThanhToan);
+        buttonGroup2.add(rdChoThanhToan);
         rdChoThanhToan.setText("Chờ thanh toán");
         rdChoThanhToan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -994,7 +1000,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
                     new InHoaDon_JFrame().setVisible(true);
                     LoadDSSP(1);
                     fillGioHang("");
-                      clearForm();
+                    clearForm();
                 } else {
                     LoadDSSP(1);
                     fillGioHang("");
@@ -1111,7 +1117,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
 
     private void txtkhoanggia2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtkhoanggia2CaretUpdate
         // TODO add your handling code here:
-             try {
+        try {
             if (txtkhoanggia1.getText().equals("")) {
                 LoadDSSP(1);
             } else if (txtkhoanggia2.getText().equals("")) {
@@ -1126,7 +1132,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
     private void rdAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdAllActionPerformed
         try {
             if (rdAll.isSelected()) {
-                LoadHD();    
+                LoadHD();
             }
         } catch (Exception e) {
         }
@@ -1134,7 +1140,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
 
     private void rdChuaThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdChuaThanhToanActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             if (rdChoThanhToan.isSelected()) {
                 fillHoaDonByTrangThai(0);
             }
@@ -1144,13 +1150,17 @@ public class BanHangsPenal extends javax.swing.JPanel {
 
     private void rdChoThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdChoThanhToanActionPerformed
         // TODO add your handling code here:
-           try {
+        try {
             if (rdChuaThanhToan.isSelected()) {
                 fillHoaDonByTrangThai(1);
             }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_rdChoThanhToanActionPerformed
+
+    private void rdChuaThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdChuaThanhToanMouseClicked
+     
+    }//GEN-LAST:event_rdChuaThanhToanMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1159,6 +1169,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
     private javax.swing.JButton btnTTKH;
     private javax.swing.JButton btnTaoHoaDon;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbbHTTT;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

@@ -28,7 +28,7 @@ import org.hibernate.query.Query;
  */
 public class HoaDonRepository {
 
-    //HungLQPH20358
+  
     public List<HoaDon> getAllHD() {
         List<HoaDon> lst = new ArrayList<>();
         String hql = "select hd From HoaDon hd join hd.nhanVien nv where hd.TrangThai = 0 or hd.TrangThai = 1 or hd.TrangThai = 3 order by hd.NgayTao desc ";
@@ -130,7 +130,7 @@ public class HoaDonRepository {
 
     public List<HoaDon> getAllHDByTrangThai(int tt) {
         List<HoaDon> lst = new ArrayList<>();
-        String hql = "select hd From HoaDon hd join hd.nhanVien nv where hd.TrangThai = :tt1 or hd.TrangThai = :tt2";
+        String hql = "select hd From HoaDon hd join hd.nhanVien nv where hd.TrangThai = :tt1 or hd.TrangThai = :tt2 ";
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
             Query q = sess.createQuery(hql);
             q.setParameter("tt1", tt);
@@ -233,20 +233,8 @@ public class HoaDonRepository {
         }
         return row;
     }
-    //Hunglqph20358
-    //------------------------
+  
 
-    //tinhph23160
-//    public List<HoaDon> getAllHoaDon() {
-//        List<HoaDon> lst = new ArrayList<>();
-//        Transaction tran = null;
-//        try (Session sess = HibernateUtil.getFACTORY().openSession()) {
-//            tran = sess.beginTransaction();
-//            lst = sess.createQuery("FROM HoaDon").list();
-//            tran.commit();
-//        }
-//        return lst;
-//    }
     public List<HoaDon> getAllHoaDon() {
         List<HoaDon> listsp = new ArrayList<>();
         Connection con;
@@ -350,6 +338,8 @@ public class HoaDonRepository {
         return lst;
     }
   
-    //-----------------
-    //----------------------
+    public static void main(String[] args) {
+        HoaDonRepository hdrepo = new HoaDonRepository();
+        System.out.println(hdrepo.getAllHDByTrangThai(1));
+    }
 }

@@ -1134,11 +1134,10 @@
                 <Component class="javax.swing.JComboBox" name="cbtrangthai">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="3">
                         <StringItem index="0" value="T&#x1ea5;t C&#x1ea3;"/>
-                        <StringItem index="1" value="&#x110;&#xe3; Th&#xe0;nh To&#xe1;n"/>
-                        <StringItem index="2" value="&#x110;&#x1a1;n Giao Ho&#xe0;n Th&#xe0;nh"/>
-                        <StringItem index="3" value="&#x110;&#xe3; H&#x1ee7;y"/>
+                        <StringItem index="1" value="&#x110;&#xe3; Thanh To&#xe1;n"/>
+                        <StringItem index="2" value="&#x110;&#xe3; H&#x1ee7;y"/>
                       </StringArray>
                     </Property>
                   </Properties>

@@ -65,6 +65,13 @@ public class LoginForm extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MẬT KHẨU");
 
+        txtUserName.setText("namtvph23205");
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserNameActionPerformed(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jButton1.setText("Đăng Nhập");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +89,7 @@ public class LoginForm extends javax.swing.JDialog {
 
         jLabel4.setText("Quên mật khẩu?");
 
+        txtPassWord.setText("123456");
         txtPassWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassWordActionPerformed(evt);
@@ -222,6 +230,10 @@ public class LoginForm extends javax.swing.JDialog {
             txtPassWord.setEchoChar('*');
         }
     }//GEN-LAST:event_cbmkActionPerformed
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
     /**
      * @param args the command line arguments

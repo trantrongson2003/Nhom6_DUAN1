@@ -109,7 +109,7 @@ public class HoaDonPanel extends javax.swing.JPanel {
 
         lblTrangThai.setText("Trạng Thái :");
 
-        cbbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chưa Thanh Toán", "Chờ Thanh Toán", "Đã Thanh Toán", "Đã Hủy", " " }));
+        cbbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Chưa Thanh Toán", "Chờ Thanh Toán", "Đã Thanh Toán", "Đã Hủy" }));
         cbbTrangThai.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbTrangThaiItemStateChanged(evt);

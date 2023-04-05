@@ -652,7 +652,7 @@ public class ThongKePanel extends javax.swing.JPanel {
             }
         });
 
-        cbtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất Cả", "Đã Thành Toán", "Đơn Giao Hoàn Thành", "Đã Hủy" }));
+        cbtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất Cả", "Đã Thanh Toán", "Đã Hủy" }));
         cbtrangthai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbtrangthaiActionPerformed(evt);
@@ -951,16 +951,9 @@ public class ThongKePanel extends javax.swing.JPanel {
                     hd.getMa(), hd.getNgayThanhToan(), hd.getTongTien(), hd.getTrangThai()
                 });
             }
-        } else if (timkiem == "Đã Thành Toán") {
+        } else if (timkiem == "Đã Thanh Toán") {
             de.setRowCount(0);
             for (HoaDonViewModels hd : hdservice.finbyngaytrangThai(5)) {
-                de.addRow(new Object[]{
-                    hd.getMa(), hd.getNgayThanhToan(), hd.getTongTien(), hd.getTrangThai()
-                });
-            }
-        } else if (timkiem == "Đơn Giao Hoàn Thành") {
-            de.setRowCount(0);
-            for (HoaDonViewModels hd : hdservice.finbyngaytrangThai(4)) {
                 de.addRow(new Object[]{
                     hd.getMa(), hd.getNgayThanhToan(), hd.getTongTien(), hd.getTrangThai()
                 });

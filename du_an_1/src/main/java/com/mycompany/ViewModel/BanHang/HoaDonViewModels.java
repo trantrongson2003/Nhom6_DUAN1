@@ -42,10 +42,6 @@ public class HoaDonViewModels {
             return "Chờ Thanh Toán";
         }else if(TrangThai == 2){
             return "Đã Hủy";
-        }else if(TrangThai == 3){
-            return "Đang Giao Hang";
-        }else if(TrangThai == 4){
-            return "Đơn Giao Hoàn Thành";
         }else{
             return "Đã Thành Toán";
         }
