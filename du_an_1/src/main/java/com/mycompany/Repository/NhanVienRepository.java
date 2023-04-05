@@ -22,7 +22,7 @@ import org.hibernate.query.Query;
  */
 public class NhanVienRepository {
 
-    //Hunglqph20358
+
     public NhanVien getLogin(String userName, String pass) {
         NhanVien nv = new NhanVien();
         String hql = "Select nv From NhanVien nv join nv.chucVu where nv.TenTK like '" + userName + "' and nv.MatKhau like '" + pass + "'";
@@ -34,10 +34,7 @@ public class NhanVienRepository {
         }
         return nv;
     }
-    //hUNGLQPH20358
-    //------------------------
 
-    //Tinhnqph23160
     Transaction trans = null;
 
     public List<NhanVien> getAllNhanVien() {
@@ -149,8 +146,7 @@ public class NhanVienRepository {
         }
 
     }
-    //Tinhnqph23160
-    //------------------------
+
     
     
      //namtvph
