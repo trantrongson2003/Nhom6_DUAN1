@@ -22,6 +22,7 @@ import com.mycompany.Service.IPM.HoaDonServiceIpm;
 import com.mycompany.ViewModel.BanHang.GioHangViewModel;
 import com.mycompany.ViewModel.BanHang.HoaDonViewModels;
 import com.mycompany.ViewModel.BanHang.SanPhamViewModelBanHang;
+import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -164,13 +165,11 @@ public class BanHangsPenal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
-        popUpMenu = new javax.swing.JPopupMenu();
-        menuEdit = new javax.swing.JMenuItem();
-        menuXoa = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        popUpMenu = new javax.swing.JPopupMenu();
+        EditSoLuong = new javax.swing.JMenuItem();
+        XoaSP = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHoaDon = new javax.swing.JTable();
@@ -226,15 +225,21 @@ public class BanHangsPenal extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
-        jRadioButton4.setText("jRadioButton4");
+        EditSoLuong.setText("Edit Số Lượng");
+        EditSoLuong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditSoLuongActionPerformed(evt);
+            }
+        });
+        popUpMenu.add(EditSoLuong);
 
-        jButton3.setText("jButton3");
-
-        menuEdit.setText("jMenuItem1");
-        popUpMenu.add(menuEdit);
-
-        menuXoa.setText("jMenuItem2");
-        popUpMenu.add(menuXoa);
+        XoaSP.setText("Xóa Sản Phẩm");
+        XoaSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                XoaSPActionPerformed(evt);
+            }
+        });
+        popUpMenu.add(XoaSP);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Hóa đơn chờ"));
 
@@ -336,6 +341,14 @@ public class BanHangsPenal extends javax.swing.JPanel {
                 "Mã sản phẩm", "Tên sản phẩm", "Số lượng", "Đơn giá"
             }
         ));
+        tblGioHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblGioHangMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblGioHangMouseReleased(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblGioHang);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1162,8 +1175,149 @@ public class BanHangsPenal extends javax.swing.JPanel {
      
     }//GEN-LAST:event_rdChuaThanhToanMouseClicked
 
+    private void EditSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSoLuongActionPerformed
+        // TODO add your handling code here:
+        try {
+            int row = tblGioHang.getSelectedRow();
+            if (row != -1) {
+
+                Integer tongSoLuongGH = Integer.valueOf(tblGioHang.getValueAt(row, 2).toString());
+                String idHDCT = null;
+                Integer soLuong = null;
+                Integer tongSLDSSP = null;
+                Integer tongSLDSSP2 = null;
+                String MaSP = null;
+                HoaDonChiTiet hdct = new HoaDonChiTiet();
+                ChiTietSP ctsp = new ChiTietSP();
+                ChiTietSP ctsp2 = new ChiTietSP();
+
+                for (int i = 0; i < hdctser.getAllHDCT(txtMaHD.getText()).size(); i++) {
+                    if (hdctser.getAllHDCT(txtMaHD.getText()).get(i).getMaSP().equals(tblGioHang.getValueAt(row, 0))) {
+                        idHDCT = hdctser.getAllHDCT(txtMaHD.getText()).get(i).getId();
+                        MaSP = hdctser.getAllHDCT(txtMaHD.getText()).get(i).getMaSP();
+                    }
+                }
+
+                for (int i = 0; i < ctspservice.getSPBanHang(1).size(); i++) {
+                    if (MaSP.equals(ctspservice.getSPBanHang(1).get(i).getMaSP())) {
+                        SanPhamViewModelBanHang ctsp_View = ctspservice.getSPBanHang(1).get(i);
+                        ctsp.setId(ctsp_View.getId());
+                        tongSLDSSP = ctsp_View.getSoLunog();
+                    }
+                }
+
+                Object slNhap = JOptionPane.showInputDialog("Vui lòng Nhập lại số lượng");
+                if (slNhap instanceof String) {
+                    soLuong = Integer.valueOf(slNhap.toString());
+                } else {
+                    return;
+                }
+
+                if (soLuong > tongSLDSSP) {
+                    JOptionPane.showMessageDialog(this, "Số Lượng Cần giảm lớn hơn Số Lượng đang có trong Giỏ Hang!");
+                    return;
+                }
+                hdct.setId(idHDCT);
+
+                ctsp.setSoLuong(tongSLDSSP + tongSoLuongGH);
+                if (ctspservice.updateSPKhiMua(ctsp) > 0) {
+                    LoadDSSP(1);
+                }
+                if (soLuong <= 0) {
+                    if (hdctser.deleteHDCTById(idHDCT) > 0) {
+                        fillGioHang(txtMaHD.getText());
+                        return;
+                    }
+                }
+                for (int i = 0; i < ctspservice.getSPBanHang(1).size(); i++) {
+                    if (MaSP.equals(ctspservice.getSPBanHang(1).get(i).getMaSP())) {
+                        SanPhamViewModelBanHang ctsp_View = ctspservice.getSPBanHang(1).get(i);
+                        ctsp2.setId(ctsp_View.getId());
+                        tongSLDSSP2 = ctsp_View.getSoLunog();
+                    }
+                }
+                hdct.setSoLuong(soLuong);
+                ctsp2.setSoLuong(tongSLDSSP2 - soLuong);
+                if (hdctser.updateSLHDCT(hdct) > 0) {
+                    fillGioHang(txtMaHD.getText());
+                    if (ctspservice.updateSPKhiMua(ctsp2) > 0) {
+                        LoadDSSP(1);
+                    }
+                }
+
+            }
+            DecimalFormat dmf = new DecimalFormat("####.####");
+            Double tongTien = 0.0;
+            for (int i = 0; i < hdctser.getAllHDCT(txtMaHD.getText()).size(); i++) {
+                tongTien += hdctser.getAllHDCT(txtMaHD.getText()).get(i).getThanhTien();
+            }
+            txtTongTien.setText(dmf.format(tongTien) + "");
+            txtKhachCanTra.setText(dmf.format(tongTien) + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_EditSoLuongActionPerformed
+
+    private void XoaSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaSPActionPerformed
+        // TODO add your handling code here:
+        try {
+            int row = tblGioHang.getSelectedRow();
+            if (row != -1) {
+                Integer tongSoLuong = Integer.valueOf(tblGioHang.getValueAt(row, 2).toString());
+                Integer soLuongSP = null;
+                String idHDCT = null;
+                String idCTSP = null;
+                String maSP = null;
+                for (int i = 0; i < hdctser.getAllHDCT(txtMaHD.getText()).size(); i++) {
+                    if (hdctser.getAllHDCT(txtMaHD.getText()).get(i).getMaSP().equals(tblGioHang.getValueAt(row, 0))) {
+                        idHDCT = hdctser.getAllHDCT(txtMaHD.getText()).get(i).getId();
+                        maSP = hdctser.getAllHDCT(txtMaHD.getText()).get(i).getMaSP();
+                    }
+                }
+                if (checkDSSP(maSP, ctspservice.getSPBanHang(1))) {
+                    SanPhamViewModelBanHang spView = ctspservice.getSPBanHang(1).get(indexMaTrungDSSP);
+                    idCTSP = spView.getId();
+                    soLuongSP = spView.getSoLunog() + tongSoLuong;
+                }
+                if (hdctser.deleteHDCTById(idHDCT) > 0) {
+                    fillGioHang(txtMaHD.getText());
+                    ChiTietSP ctsp = new ChiTietSP();
+                    ctsp.setId(idCTSP);
+                    ctsp.setSoLuong(soLuongSP);
+                    if (ctspservice.updateSPKhiMua(ctsp) > 0) {
+                        LoadDSSP(1);
+                    }
+                }
+            }
+            DecimalFormat dmf = new DecimalFormat("####.####");
+            Double tongTien = 0.0;
+            for (int i = 0; i < hdctser.getAllHDCT(txtMaHD.getText()).size(); i++) {
+                tongTien += hdctser.getAllHDCT(txtMaHD.getText()).get(i).getThanhTien();
+            }
+            txtTongTien.setText(dmf.format(tongTien) + "");
+            txtKhachCanTra.setText(dmf.format(tongTien) + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_XoaSPActionPerformed
+
+    private void tblGioHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGioHangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblGioHangMouseClicked
+
+    private void tblGioHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGioHangMouseReleased
+        // TODO add your handling code here:
+             if (evt.getButton() == MouseEvent.BUTTON3) {
+            if (evt.isPopupTrigger() && tblGioHang.getSelectedRowCount() != 0) {
+                popUpMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_tblGioHangMouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem EditSoLuong;
+    private javax.swing.JMenuItem XoaSP;
     private javax.swing.JButton btnChoThanhToan;
     private javax.swing.JButton btnHuyHd;
     private javax.swing.JButton btnTTKH;
@@ -1171,7 +1325,6 @@ public class BanHangsPenal extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbbHTTT;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1198,13 +1351,10 @@ public class BanHangsPenal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JMenuItem menuEdit;
-    private javax.swing.JMenuItem menuXoa;
     private javax.swing.JPopupMenu popUpMenu;
     private javax.swing.JRadioButton rdAll;
     private javax.swing.JRadioButton rdChoThanhToan;
