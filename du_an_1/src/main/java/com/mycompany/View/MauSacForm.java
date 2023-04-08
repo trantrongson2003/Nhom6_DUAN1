@@ -229,7 +229,7 @@ public class MauSacForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         int index = tbl_MauSac.getSelectedRow();
         if (index < 0) {
             JOptionPane.showMessageDialog(this, "Chọn Dòng Để Xóa");
@@ -239,8 +239,8 @@ public class MauSacForm extends javax.swing.JFrame {
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
-        String ma = txtMa.getText();
-        mauSacService.delete(ma);
+        String id = lblID.getText();
+        mauSacService.delete(id);
         LoadTable();
         JOptionPane.showMessageDialog(this, "Xóa Thành Công");
     }//GEN-LAST:event_btnXoaActionPerformed

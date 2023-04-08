@@ -65,12 +65,12 @@ public class MauSacRespository {
             e.printStackTrace();
         }
     }
-    public void delete(String Id){
+    public void delete(String Id) {
         try {
-            Connection conn =DBContext.getConnection();
-            String sql="DELETE SanPham WHERE Id=?";
-            PreparedStatement ps=conn.prepareStatement(sql);
-            ps.setString(1,Id );
+            Connection conn = DBContext.getConnection();
+            String sql = "DELETE from mausac WHERE Id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, Id);
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
