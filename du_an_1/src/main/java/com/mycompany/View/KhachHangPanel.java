@@ -116,12 +116,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBang = new javax.swing.JTable();
         txt_find = new javax.swing.JTextField();
-        btnNext = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        lblTotal = new javax.swing.JLabel();
-        btnDau = new javax.swing.JButton();
-        btnCuoi = new javax.swing.JButton();
-        lblTrang = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         DeleteMenu.setText("Delete");
         DeleteMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +139,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setPreferredSize(new java.awt.Dimension(892, 595));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.setPreferredSize(new java.awt.Dimension(892, 595));
 
@@ -168,6 +163,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
         buttonGroup1.add(rdMoi);
         rdMoi.setText("Mới");
 
+        btnThemKH.setBackground(new java.awt.Color(102, 255, 0));
         btnThemKH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnThemKH.setText("Thêm");
         btnThemKH.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +172,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
             }
         });
 
+        btnSua.setBackground(new java.awt.Color(153, 255, 0));
         btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +181,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
             }
         });
 
+        btnLamMoi.setBackground(new java.awt.Color(153, 255, 0));
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +190,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
             }
         });
 
+        btnXoaKH.setBackground(new java.awt.Color(153, 255, 0));
         btnXoaKH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnXoaKH.setText("Xóa");
         btnXoaKH.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +201,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
 
         jLabel13.setText("SDT");
 
+        btnThungRac.setBackground(new java.awt.Color(255, 0, 0));
         btnThungRac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete.png"))); // NOI18N
         btnThungRac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,7 +319,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
                 .addContainerGap(456, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông Tin", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         tblBang.setModel(new javax.swing.table.DefaultTableModel(
@@ -340,6 +340,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
         });
         jScrollPane1.setViewportView(tblBang);
 
+        txt_find.setName(""); // NOI18N
         txt_find.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txt_findCaretUpdate(evt);
@@ -356,37 +357,13 @@ loadFind(svKH.find(txt_find.getText().trim()));
             }
         });
 
-        btnNext.setText(">");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(153, 255, 0));
+        jButton1.setText("Tìm kiếm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        btnBack.setText("<");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        lblTotal.setText("Total: 0");
-
-        btnDau.setText("<<");
-        btnDau.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDauActionPerformed(evt);
-            }
-        });
-
-        btnCuoi.setText(">>");
-        btnCuoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCuoiActionPerformed(evt);
-            }
-        });
-
-        lblTrang.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -394,40 +371,22 @@ loadFind(svKH.find(txt_find.getText().trim()));
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(765, Short.MAX_VALUE)
-                .addComponent(txt_find, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26)
+                .addComponent(txt_find, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(276, 276, 276)
-                .addComponent(btnDau)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addGap(15, 15, 15)
-                .addComponent(lblTrang)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnNext)
-                .addGap(18, 18, 18)
-                .addComponent(btnCuoi)
-                .addGap(27, 27, 27)
-                .addComponent(lblTotal)
-                .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txt_find, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_find, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNext)
-                    .addComponent(btnBack)
-                    .addComponent(lblTotal)
-                    .addComponent(btnDau)
-                    .addComponent(btnCuoi)
-                    .addComponent(lblTrang))
-                .addContainerGap())
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -441,7 +400,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 387, Short.MAX_VALUE)
+                .addGap(0, 389, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE))
@@ -451,12 +410,12 @@ loadFind(svKH.find(txt_find.getText().trim()));
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1122, Short.MAX_VALUE)
+            .addGap(0, 1065, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 41, Short.MAX_VALUE)
+                    .addGap(0, 12, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 41, Short.MAX_VALUE)))
+                    .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,6 +447,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
     }//GEN-LAST:event_txt_findActionPerformed
 
     private void btnThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemKHActionPerformed
+        if(checkValidate()){
         int row = tblBang.getSelectedRow();
 
         KhachHang kh = getFormData();
@@ -498,9 +458,11 @@ loadFind(svKH.find(txt_find.getText().trim()));
         loadTableChiTietSP(svKH.getList());
         JOptionPane.showMessageDialog(this, "Thêm Thành Công !");
         loadFind(svKH.find(txt_find.getText().trim()));
+        }
     }//GEN-LAST:event_btnThemKHActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        if(checkValidate()){
         int row = this.tblBang.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để sửa !");
@@ -516,6 +478,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
             JOptionPane.showMessageDialog(this, "Đã hủy!");
         }
         loadFind(svKH.find(txt_find.getText().trim()));
+        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
@@ -573,7 +536,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
     private void txt_findCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txt_findCaretUpdate
         String timkiem = txt_find.getText();
         this.svKH.search(timkiem);
-        loadTableChiTietSP(svKH.getList());
+//        loadTableChiTietSP(svKH.getList());
 
         loadFind(svKH.find(txt_find.getText().trim()));
     }//GEN-LAST:event_txt_findCaretUpdate
@@ -582,41 +545,18 @@ loadFind(svKH.find(txt_find.getText().trim()));
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_findKeyReleased
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-//        tranghientai++;
-//        if (tranghientai > tongsoTrang - 1) {
-//            tranghientai = tongsoTrang - 1;
-//        }
-//        loadTableChiTietSP(svKH.getList());
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        tranghientai--;
-        if (tranghientai < 0) {
-            tranghientai = 0;
-        }
-        loadTableChiTietSP(svKH.getList());
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDauActionPerformed
-        tranghientai = 0;
-        loadTableChiTietSP(svKH.getList());
-    }//GEN-LAST:event_btnDauActionPerformed
-
-    private void btnCuoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuoiActionPerformed
-        tranghientai = tongsoTrang - 1;
-        loadTableChiTietSP(svKH.getList());
-    }//GEN-LAST:event_btnCuoiActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String sdt = txt_find.getText();
+        loadFind(svKH.find(sdt));
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem DeleteMenu;
     private javax.swing.JPopupMenu PopupMenu;
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCuoi;
-    private javax.swing.JButton btnDau;
     private javax.swing.JButton btnLamMoi;
-    private javax.swing.JButton btnNext;
     private javax.swing.JButton btnSua;
     private javax.swing.JPanel btnThem;
     private javax.swing.JButton btnThemKH;
@@ -625,6 +565,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -637,8 +578,6 @@ loadFind(svKH.find(txt_find.getText().trim()));
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTotal;
-    private javax.swing.JLabel lblTrang;
     private javax.swing.JRadioButton rdLauNam;
     private javax.swing.JRadioButton rdMoi;
     private javax.swing.JTable tblBang;
@@ -650,50 +589,62 @@ loadFind(svKH.find(txt_find.getText().trim()));
     private javax.swing.JTextField txt_find;
     // End of variables declaration//GEN-END:variables
  public void loadTableChiTietSP(List<KhachHang> kh) {
-        DefaultTableModel dtm1 = (DefaultTableModel) tblBang.getModel();
-        dtm1.setRowCount(0);
-        lblTotal.setText("Total: " + svKH.totalCount());
-        count = kh.size();
-        if (count % 5 == 0) {
-            tongsoTrang = count / 5;
-        } else {
-            tongsoTrang = count / 5 + 1;
-        }
-        int n = 5 * (tranghientai);
-        int m = n + 5;
-        if (count % 5 == 0) {
-            for (int i = n; i < m; i++) {
-                dtm1.addRow(new Object[]{kh.get(i).getMa(),
-                    kh.get(i).getHoTen(),
-                    kh.get(i).getNgaySinh(),
-                    kh.get(i).getSdt(),
-                    kh.get(i).getDiaChi(),
-                    kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
-            }
-
-        } else {
-            if (tranghientai == tongsoTrang - 1) {
-                int k = n + count % 5;
-                for (int i = n; i < k; i++) {
-                    dtm1.addRow(new Object[]{kh.get(i).getMa(),
-                        kh.get(i).getHoTen(),
-                        kh.get(i).getNgaySinh(),
-                        kh.get(i).getSdt(),
-                        kh.get(i).getDiaChi(),
-                        kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
-                }
-            } else {
-                for (int i = n; i < m; i++) {
-                    dtm1.addRow(new Object[]{kh.get(i).getMa(),
-                        kh.get(i).getHoTen(),
-                        kh.get(i).getNgaySinh(),
-                        kh.get(i).getSdt(),
-                        kh.get(i).getDiaChi(),
-                        kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
-                }
-            }
-            lblTrang.setText(tranghientai + 1 + "/" + tongsoTrang);
-        }
+//        DefaultTableModel dtm1 = (DefaultTableModel) tblBang.getModel();
+//        dtm1.setRowCount(0);
+//        lblTotal.setText("Total: " + svKH.totalCount());
+//        count = kh.size();
+//        if (count % 5 == 0) {
+//            tongsoTrang = count / 5;
+//        } else {
+//            tongsoTrang = count / 5 + 1;
+//        }
+//        int n = 5 * (tranghientai);
+//        int m = n + 5;
+//        if (count % 5 == 0) {
+//            for (int i = n; i < m; i++) {
+//                dtm1.addRow(new Object[]{kh.get(i).getMa(),
+//                    kh.get(i).getHoTen(),
+//                    kh.get(i).getNgaySinh(),
+//                    kh.get(i).getSdt(),
+//                    kh.get(i).getDiaChi(),
+//                    kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
+//            }
+//
+//        } else {
+//            if (tranghientai == tongsoTrang - 1) {
+//                int k = n + count % 5;
+//                for (int i = n; i < k; i++) {
+//                    dtm1.addRow(new Object[]{kh.get(i).getMa(),
+//                        kh.get(i).getHoTen(),
+//                        kh.get(i).getNgaySinh(),
+//                        kh.get(i).getSdt(),
+//                        kh.get(i).getDiaChi(),
+//                        kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
+//                }
+//            } else {
+//                for (int i = n; i < m; i++) {
+//                    dtm1.addRow(new Object[]{kh.get(i).getMa(),
+//                        kh.get(i).getHoTen(),
+//                        kh.get(i).getNgaySinh(),
+//                        kh.get(i).getSdt(),
+//                        kh.get(i).getDiaChi(),
+//                        kh.get(i).getTrangThai() == 1 ? "Lâu Năm" : "Mới",});
+//                }
+//            }
+//            lblTrang.setText(tranghientai + 1 + "/" + tongsoTrang);
+//        }
     }
-
+public boolean checkValidate(){
+    if(txtDiaChi.getText().isBlank()||txtMa.getText().isBlank()
+            ||txtNgaySinh.getText().isBlank()||txtSDT.getText().isBlank()||txtTen.getText().isBlank()){
+        JOptionPane.showMessageDialog(this, "Không đợc để trống");
+        return false;
+    }
+    String sdt = "0[0-9]{9}";
+    if(!txtSDT.getText().matches(sdt)){
+        JOptionPane.showMessageDialog(this, "SDT phải đúng định dạng");
+        return false;
+    }
+    return true;
+}
 }

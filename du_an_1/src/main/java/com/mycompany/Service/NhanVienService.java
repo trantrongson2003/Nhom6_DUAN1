@@ -23,6 +23,8 @@ public interface NhanVienService {
     NhanVienViewModel InsertNhanVien(NhanVienViewModel nv);
 
     void xoaNhanVien(String ma);
+    
+    public void UPDATE(NhanVienViewModel nv, String ma);
 
     NhanVienViewModel updateNhanVien(String ma, NhanVienViewModel nv);
 

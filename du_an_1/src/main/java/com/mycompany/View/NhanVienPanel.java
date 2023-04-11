@@ -5,6 +5,7 @@
 package com.mycompany.View;
 
 import com.mycompany.DomainModels.ChucVu;
+import com.mycompany.DomainModels.NhanVien;
 import com.mycompany.Service.ChucVuSevice;
 import com.mycompany.Service.IPM.ChucVuServiceImp;
 import com.mycompany.Service.IPM.NhanVienServiceIpm;
@@ -38,6 +39,7 @@ public class NhanVienPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jButton2 = new javax.swing.JButton();
         btnThungRac = new javax.swing.JButton();
         btnsua = new javax.swing.JButton();
         byaxoa = new javax.swing.JButton();
@@ -71,6 +73,8 @@ public class NhanVienPanel extends javax.swing.JPanel {
         txttimkiem = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         txtten = new javax.swing.JTextField();
+
+        jButton2.setText("jButton2");
 
         btnThungRac.setBackground(new java.awt.Color(255, 0, 51));
         btnThungRac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete.png"))); // NOI18N
@@ -224,7 +228,7 @@ public class NhanVienPanel extends javax.swing.JPanel {
                     .addComponent(txttimkiem)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -306,7 +310,7 @@ public class NhanVienPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(135, 135, 135)
                 .addComponent(btnThungRac)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addContainerGap(466, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(125, 125, 125)
@@ -383,18 +387,34 @@ public class NhanVienPanel extends javax.swing.JPanel {
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
-        int row = tbnhavien.getSelectedRow();
+//        int row = tbnhavien.getSelectedRow();
+//
+//        if (row == - 1) {
+//            JOptionPane.showMessageDialog(this, "Moi chon dong");
+//            return;
+//        }
+//        NhanVienViewModel nv = getFrom();
+//
+//        if (svnv.updateNhanVien(nv.getMa(), nv) != null) {
+//            JOptionPane.showMessageDialog(this, "Sửa thành công");
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Sửa thành công");
+//        }
+//        loadData();
 
-        if (row == - 1) {
-            JOptionPane.showMessageDialog(this, "Moi chon dong");
+int row = this.tbnhavien.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để sửa !");
             return;
         }
         NhanVienViewModel nv = getFrom();
+        int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn Sửa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (tb == JOptionPane.YES_OPTION) {
+            svnv.UPDATE(nv, nv.getMa());
 
-        if (svnv.updateNhanVien(nv.getMa(), nv) != null) {
-            JOptionPane.showMessageDialog(this, "Sửa thành công");
+            JOptionPane.showMessageDialog(this, "Sửa Thành Công !");
         } else {
-            JOptionPane.showMessageDialog(this, "Sửa thành công");
+            JOptionPane.showMessageDialog(this, "Đã hủy!");
         }
         loadData();
     }//GEN-LAST:event_btnsuaActionPerformed
@@ -448,14 +468,26 @@ public class NhanVienPanel extends javax.swing.JPanel {
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
-        NhanVienViewModel nv = getFrom();
+//        NhanVienViewModel nv = getFrom();
+//
+//        if (svnv.InsertNhanVien(nv) != null) {
+//            JOptionPane.showMessageDialog(this, "Thêm thành công");
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Sửa thành công");
+//        }
+//        loadData();
 
-        if (svnv.InsertNhanVien(nv) != null) {
-            JOptionPane.showMessageDialog(this, "Thêm thành công");
-        } else {
-            JOptionPane.showMessageDialog(this, "Sửa thành công");
+ if(checkValidate()){
+        int row = tbnhavien.getSelectedRow();
+        
+        NhanVienViewModel nv = getFrom();
+        if(nv == null){
+            return;
         }
+        this.svnv.InsertNhanVien(nv);
         loadData();
+        JOptionPane.showMessageDialog(this, "Thêm Thành Công !");
+    }
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void tbnhavienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbnhavienMouseClicked
@@ -537,6 +569,7 @@ public class NhanVienPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbchucvu;
     private javax.swing.JComboBox<String> cbtrangthai;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -601,5 +634,18 @@ public class NhanVienPanel extends javax.swing.JPanel {
         return nv;
     }
     
-
+public boolean checkValidate(){
+        if(txtdiachi.getText().isBlank()||txtma.getText().isBlank()||txtmatkhau.getText().isBlank()
+                ||txtten.getText().isBlank()||txttentk.getText().isBlank()){
+            JOptionPane.showMessageDialog(this, "Không được để trống");
+           
+            return false;
+        }
+        String sdt = "0[0-9]{9}";
+        if(!txtsdt.getText().matches(sdt)){
+             JOptionPane.showMessageDialog(this, "SDT phải đúng định dạng");
+             return false;
+        }
+        return true;
+    }
 }

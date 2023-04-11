@@ -7,7 +7,9 @@ package com.mycompany.Repository;
 import com.mycompany.DomainModels.NhanVien;
 import com.mycompany.Util.DBContext;
 import com.mycompany.Util.HibernateUtil;
+import com.mycompany.ViewModel.NhanVien.NhanVienViewModel;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +92,19 @@ public class NhanVienRepository {
         }
     }
 
+    public List<NhanVien> searchphone(String sdt) {
+        List<NhanVien> listCTSP = new ArrayList<>();
+        try ( Session session = HibernateUtil.getFACTORY().openSession()) {
+            Query query = session.createQuery("FROM KhachHang WHERE Sdt=:sdt "
+            );
+            query.setParameter("sdt", sdt);
+            listCTSP = query.getResultList();
+            return listCTSP;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     public NhanVien updateNhanVien(String ma, NhanVien nv) {
 //     int row =0;
 //        try {
@@ -132,6 +147,31 @@ public class NhanVienRepository {
         } finally {
             return nv;
         }
+    }
+    
+     public Integer update(NhanVienViewModel nv, String ma) {
+        try {
+            Connection con = DBContext.getConnection();
+            String sql = "UPDATE NHANVIEN SET HOTEN = ?, TenTK = ?, MatKhau = ?,GioiTinh = ?, DIACHI = ? ,SDT = ?,IdCV=?,TrangThai=? WHERE MA = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nv.getHoTen());
+            ps.setString(2, nv.getTenTK());
+            ps.setString(3, nv.getMatKhau());
+            ps.setString(4, nv.getGioiTinh());
+            ps.setString(5, nv.getDiaChi());
+            ps.setString(6, nv.getSdt());
+            ps.setString(7, nv.getTencv().getId());
+            
+//            ps.setDate(2, (Date) nv.get());
+//            ps.setString(8, nv.getChucVu());
+            
+            ps.setInt(8, nv.getTrangThai());
+            ps.setString(9, ma);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void deleteNhanVien(String ma) {
@@ -180,4 +220,8 @@ public class NhanVienRepository {
         }
         return listnv;
     }   
+      public static void main(String[] args) {
+        NhanVienRepository nhanVienRepository = new NhanVienRepository();
+        NhanVien nv = new NhanVien();
+    }
 }

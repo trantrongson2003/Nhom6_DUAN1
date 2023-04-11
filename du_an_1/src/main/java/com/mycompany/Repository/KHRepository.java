@@ -172,7 +172,7 @@ public class KHRepository {
         try ( Session session = HibernateUtil.getFACTORY().openSession()) {
             Query query = session.createQuery("FROM KhachHang WHERE Sdt=:sdt "
             );
-            query.setParameter("sdt", sdt);
+            query.setParameter("sdt", "%"+sdt+"%");
             listCTSP = query.getResultList();
             return listCTSP;
         } catch (Exception e) {

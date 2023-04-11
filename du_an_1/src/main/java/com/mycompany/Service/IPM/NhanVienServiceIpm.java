@@ -101,4 +101,14 @@ public class NhanVienServiceIpm implements NhanVienService {
 return rep.search(searchkey);
     }
 
+//    @Override
+//    public void UPDATE(NhanVien nv, String ma) {
+//rep.update(nv, ma);
+//    }
+
+    @Override
+    public void UPDATE(NhanVienViewModel nv, String ma) {
+rep.update(nv, ma);
+    }
+
 }
