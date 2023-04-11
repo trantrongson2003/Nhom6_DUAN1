@@ -987,7 +987,7 @@ new SanPhamForm().setVisible(true);
     }//GEN-LAST:event_btnAddsanphamActionPerformed
 
     private void btnAddmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddmsActionPerformed
-        // TODO add your handling code here:
+        new MauSacForm().setVisible(true);
     }//GEN-LAST:event_btnAddmsActionPerformed
 
 
