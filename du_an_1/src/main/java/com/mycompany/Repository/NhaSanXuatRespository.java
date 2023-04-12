@@ -60,8 +60,7 @@ public class NhaSanXuatRespository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, b.getMa());
             ps.setString(2, b.getTen());
-            ps.setDate(3, sqlDate);
-            ps.setString(4, b.getId());
+            ps.setString(3, Id);
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();

@@ -35,7 +35,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
     private void LoadTable() {
         DefaultTableModel model = (DefaultTableModel) tblThungRacSP.getModel();
         model.setRowCount(0);
-        for (SanPhamViewModelSP nv : chiTietSPService.getAllSPNgungKinhDoanh()) {
+        for (SanPhamViewModelSP nv : chiTietSPService.getListThungRacSP()) {
             model.addRow(new Object[]{
                 nv.getMa(), nv.getTen(), nv.getMauSac(), nv.getNhaSanXuat(),
                 nv.getChatLieuDeGiay(), nv.getHang(),
@@ -169,10 +169,10 @@ public class ThungRacSPForm extends javax.swing.JFrame {
                 return;
             }
 
-            for (int i = 0; i < chiTietSPService.getAllSPNgungKinhDoanh().size(); i++) {
-                if (chiTietSPService.getAllSPNgungKinhDoanh().get(i).getMa().equals(tblThungRacSP.getValueAt(row, 0))) {
+            for (int i = 0; i < chiTietSPService.getListThungRacSP().size(); i++) {
+                if (chiTietSPService.getListThungRacSP().get(i).getMa().equals(tblThungRacSP.getValueAt(row, 0))) {
 
-                    id = chiTietSPService.getAllSPNgungKinhDoanh().get(i).getId();
+                    id = chiTietSPService.getListThungRacSP().get(i).getId();
                 }
 
             }
@@ -200,10 +200,10 @@ public class ThungRacSPForm extends javax.swing.JFrame {
                 return;
             }
 
-            for (int i = 0; i < chiTietSPService.getAllSPNgungKinhDoanh().size(); i++) {
-                if (chiTietSPService.getAllSPNgungKinhDoanh().get(i).getMa().equals(tblThungRacSP.getValueAt(row, 0))) {
+            for (int i = 0; i < chiTietSPService.getListThungRacSP().size(); i++) {
+                if (chiTietSPService.getListThungRacSP().get(i).getMa().equals(tblThungRacSP.getValueAt(row, 0))) {
 
-                    id = chiTietSPService.getAllSPNgungKinhDoanh().get(i).getId();
+                    id = chiTietSPService.getListThungRacSP().get(i).getId();
                 }
             }
             chiTietSPService.delete(id);

@@ -258,7 +258,7 @@ public class NSXForm extends javax.swing.JFrame {
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
-        nsxs.update(b.getMa(), b);
+        nsxs.update(b.getId(), b);
         LoadTable();
         JOptionPane.showMessageDialog(this, "Sửa Thành Công");
     }//GEN-LAST:event_btnSuaActionPerformed

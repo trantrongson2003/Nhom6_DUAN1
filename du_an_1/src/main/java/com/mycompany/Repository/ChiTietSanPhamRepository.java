@@ -182,7 +182,7 @@ public class ChiTietSanPhamRepository {
         List<ChiTietSP> list = new ArrayList();
         try (Session sess = HibernateUtil.getFACTORY().openSession()) {
             Transaction trans = sess.beginTransaction();
-            list = sess.createQuery("from ChiTietSP where TrangThai = 0").list();
+            list = sess.createQuery("from ChiTietSP where TrangThai = 1").list();
             trans.commit();
         }
         return list;
