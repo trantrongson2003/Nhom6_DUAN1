@@ -462,12 +462,13 @@ loadFind(svKH.find(txt_find.getText().trim()));
     }//GEN-LAST:event_btnThemKHActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        if(checkValidate()){
-        int row = this.tblBang.getSelectedRow();
+         int row = this.tblBang.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để sửa !");
             return;
         }
+        if(checkValidate()){
+       
         KhachHang kh = getFormData();
         int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn Sửa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (tb == JOptionPane.YES_OPTION) {
@@ -490,7 +491,12 @@ loadFind(svKH.find(txt_find.getText().trim()));
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnXoaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKHActionPerformed
-        KhachHang kh = getFormData();
+        int row = this.tblBang.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để xóa !");
+                return;
+            }
+KhachHang kh = new KhachHang();
 
         int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (tb == JOptionPane.YES_OPTION) {
@@ -637,7 +643,7 @@ loadFind(svKH.find(txt_find.getText().trim()));
 public boolean checkValidate(){
     if(txtDiaChi.getText().isBlank()||txtMa.getText().isBlank()
             ||txtNgaySinh.getText().isBlank()||txtSDT.getText().isBlank()||txtTen.getText().isBlank()){
-        JOptionPane.showMessageDialog(this, "Không đợc để trống");
+        JOptionPane.showMessageDialog(this, "Không được để trống");
         return false;
     }
     String sdt = "0[0-9]{9}";

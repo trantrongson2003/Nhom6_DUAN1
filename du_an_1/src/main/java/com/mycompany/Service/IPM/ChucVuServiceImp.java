@@ -15,24 +15,47 @@ import java.util.List;
  *
  * @author nqtin
  */
-public class ChucVuServiceImp implements ChucVuSevice{
+public class ChucVuServiceImp implements ChucVuSevice {
+
     private ChucVuRepository rep;
-    
-    public ChucVuServiceImp(){
+
+    public ChucVuServiceImp() {
         rep = new ChucVuRepository();
     }
+
     @Override
-    public List<ChucVu> getListChucVu(){
+    public List<ChucVu> getListChucVu() {
         return rep.getAllChucVu();
     }
+
     @Override
-    public ChucVu InsertChucVu(ChucVu cv){
+    public ChucVu InsertChucVu(ChucVu cv) {
         return rep.insertChucVu(cv);
     }
-     @Override
-    public ChucVu updateChucVu(ChucVu cv, String ma, String ten,  Date ngayTao,Integer trangthai){
-        return rep.updateChucVu(cv, ma, ten, ngayTao,trangthai);
+
+    @Override
+    public ChucVu updateChucVu(ChucVu cv, String ma, String ten, Date ngayTao, Integer trangthai) {
+        return rep.updateChucVu(cv, ma, ten, ngayTao, trangthai);
     }
 
+    @Override
+    public void insert(ChucVu cv) {
+        rep.insert(cv);
+    }
+
+    @Override
+    public void update(String Ma, ChucVu sp) {
+        rep.update(Ma, sp);
+    }
+
+    @Override
+    public void delete(String id) {
+        rep.delete(id);
+    }
+
+    @Override
+    public List<ChucVu> getAll() {
+        return rep.getALL();
+    }
 
 }

@@ -16,6 +16,14 @@ import java.util.List;
 public interface ChucVuSevice {
 
     List<ChucVu> getListChucVu();
+    
+    List<ChucVu> getAll();
+    
+     void insert(ChucVu cv);
+       
+       void update(String Ma, ChucVu sp);
+       
+       void delete(String id);
 
     ChucVu InsertChucVu(ChucVu cv);
 

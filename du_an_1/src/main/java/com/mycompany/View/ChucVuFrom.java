@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class ChucVuFrom extends javax.swing.JFrame {
 
     private ChucVuSevice svcv = new ChucVuServiceImp();
+    DefaultTableModel dtm = new DefaultTableModel();
 
     /**
      * Creates new form ChucVuViews
@@ -26,8 +27,18 @@ public class ChucVuFrom extends javax.swing.JFrame {
     public ChucVuFrom() {
         initComponents();
         this.setLocationRelativeTo(this);
-        loaddata();
+        loadTable();
         //tinhnqph23160
+    }
+
+    private void loadTable() {
+        dtm = (DefaultTableModel) tbchucvu.getModel();
+        dtm.setRowCount(0);
+        for (ChucVu cv : svcv.getAll()) {
+            Object row[] = {cv.getMa(), cv.getTen(), cv.getNgayTao(),
+                cv.getTrangThai() == 0 ? "Đang HD" : "Không HD"};
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -52,8 +63,12 @@ public class ChucVuFrom extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rdoHd = new javax.swing.JRadioButton();
+        rdoKhd = new javax.swing.JRadioButton();
+        btnXoa = new javax.swing.JButton();
+        btnlammoi = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtNgaytao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -83,7 +98,7 @@ public class ChucVuFrom extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ma", "Tên", "Ngày tạo", "Ngày sửa", "Trạng thái"
+                "Ma", "Tên", "Ngày tạo", "Trạng thái"
             }
         ));
         tbchucvu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,19 +114,35 @@ public class ChucVuFrom extends javax.swing.JFrame {
 
         jLabel1.setText("Mã");
 
-        jButton1.setText("--");
+        jButton1.setText("Thoát");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Đang Hoạt Động");
+        buttonGroup1.add(rdoHd);
+        rdoHd.setSelected(true);
+        rdoHd.setText("Đang Hoạt Động");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Không Hoạt Động");
+        buttonGroup1.add(rdoKhd);
+        rdoKhd.setText("Không Hoạt Động");
+
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+
+        btnlammoi.setText("Làm mới");
+        btnlammoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlammoiActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Ngày tạo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,36 +151,44 @@ public class ChucVuFrom extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel1))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                             .addComponent(jLabel2))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(rdoHd)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2))))
+                                .addComponent(rdoKhd))
+                            .addComponent(txtNgaytao, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnlammoi)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnthem)
-                            .addComponent(btnsua))
-                        .addGap(36, 36, 36))))
+                            .addComponent(btnthem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnsua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnXoa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,25 +199,33 @@ public class ChucVuFrom extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(btnthem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnsua)
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtNgaytao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnlammoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(50, 50, 50))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnthem)
-                        .addGap(14, 14, 14)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(btnsua)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(rdoHd)
+                            .addComponent(rdoKhd)
+                            .addComponent(btnXoa))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -190,7 +237,7 @@ public class ChucVuFrom extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,32 +253,87 @@ public class ChucVuFrom extends javax.swing.JFrame {
 
         txtma.setText(tbchucvu.getValueAt(row, 0).toString());
         txtten.setText(tbchucvu.getValueAt(row, 1).toString());
-
+        txtNgaytao.setText(tbchucvu.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tbchucvuMouseClicked
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
-        ChucVu cv = getFrom();
-        svcv.InsertChucVu(cv);
-        loaddata();
+//        ChucVu cv = getFrom();
+//        svcv.InsertChucVu(cv);
+//        loaddata();
+
+        ChucVu sp = getFrom();
+        if (sp == null) {
+            return;
+        }
+        if (txtma.getText().isEmpty() || txtten.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui Lòng Nhập Đầy Đủ Thông Tin");
+            return;
+        }
+        svcv.insert(sp);
+        loadTable();
+
+        JOptionPane.showMessageDialog(this, "Thêm Thành Công!");
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
-        int row = tbchucvu.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Mời Chọn Dòng");
+//        int row = tbchucvu.getSelectedRow();
+//        if (row == -1) {
+//            JOptionPane.showMessageDialog(this, "Mời Chọn Dòng");
+//            return;
+//        }
+//        ChucVu cv = getFrom();
+//        svcv.updateChucVu(cv, cv.getMa(), cv.getTen(), new Date(), cv.getTrangThai());
+//        loaddata();
+
+        ChucVu b = getFrom();
+        if (b == null) {
             return;
         }
-        ChucVu cv = getFrom();
-        svcv.updateChucVu(cv, cv.getMa(), cv.getTen(), new Date(), cv.getTrangThai());
-        loaddata();
+        int chon = tbchucvu.getSelectedRow();
+        if (chon < 0) {
+            JOptionPane.showMessageDialog(this, "Chọn Dòng Cần Sửa");
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this, "Bạn Muốn Sửa Không?", "Sửa", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+        svcv.update(b.getMa(), b);
+        loadTable();
+        JOptionPane.showMessageDialog(this, "Sửa Thành Công");
     }//GEN-LAST:event_btnsuaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here
+        int index = tbchucvu.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(this, "Chọn Dòng Để Xóa");
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this, "Bạn Muốn Xóa Không?", "Xóa", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+        String id = txtma.getText();
+        svcv.delete(id);
+        loadTable();
+        JOptionPane.showMessageDialog(this, "Xóa Thành Công");
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnlammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlammoiActionPerformed
+        // TODO add your handling code here:
+        txtma.setText("");
+        txtten.setText("");
+
+        txtNgaytao.setText("");
+    }//GEN-LAST:event_btnlammoiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,6 +372,8 @@ public class ChucVuFrom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnlammoi;
     private javax.swing.JButton btnsua;
     private javax.swing.JButton btnthem;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -278,11 +382,13 @@ public class ChucVuFrom extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton rdoHd;
+    private javax.swing.JRadioButton rdoKhd;
     private javax.swing.JTable tbchucvu;
+    private javax.swing.JTextField txtNgaytao;
     private javax.swing.JTextField txtma;
     private javax.swing.JTextField txtten;
     // End of variables declaration//GEN-END:variables
@@ -301,10 +407,10 @@ public class ChucVuFrom extends javax.swing.JFrame {
     public ChucVu getFrom() {
         ChucVu cv = new ChucVu();
         cv.setMa(txtma.getText().trim());
-        cv.setTen(txtma.getText().trim());
+        cv.setTen(txtten.getText().trim());
         cv.setNgayTao(new Date());
         cv.setNgaySua(new Date());
-
+        cv.setTrangThai(rdoHd.isSelected() ? 0 : 1);
         return cv;
     }
 }

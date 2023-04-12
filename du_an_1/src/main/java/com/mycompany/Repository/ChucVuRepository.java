@@ -6,7 +6,11 @@
 package com.mycompany.Repository;
 
 import com.mycompany.DomainModels.ChucVu;
+import com.mycompany.Util.DBContext;
 import com.mycompany.Util.HibernateUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +37,67 @@ public class ChucVuRepository {
         return listcv;
     }
 
+    public List<ChucVu> getALL() {
+        List<ChucVu> lst = new ArrayList<>();
+        try ( Connection con = DBContext.getConnection()) {
+            String sql = "select * from ChucVu";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                lst.add(new ChucVu(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getDate(5), rs.getInt(6)));
+            }
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public void insert(ChucVu cv) {
+        try {
+            Date date = new Date();
+            java.sql.Date sqlDate = new java.sql.Date((date.getTime()));
+            Connection conn = DBContext.getConnection();
+            String sql = "INSERT INTO ChucVu (Ma,Ten,NgayTao,TrangThai)VALUES(?,?,?,?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, cv.getMa());
+            ps.setString(2, cv.getTen());
+            ps.setDate(3, sqlDate);
+            
+            ps.setInt(4, cv.getTrangThai());
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(String Ma, ChucVu cv) {
+        try {
+            Date date = new Date();
+            java.sql.Date sqlDate = new java.sql.Date((date.getTime()));
+            Connection conn = DBContext.getConnection();
+            String sql = "UPDATE ChucVu SET Ten=?, TrangThai =? WHERE Ma=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, cv.getTen());
+            ps.setInt(2, cv.getTrangThai());
+//            ps.setDate(3, sqlDate);
+//            ps.setString(4, b.getId());
+            ps.setString(3, Ma);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(String Id) {
+        try {
+            Connection conn = DBContext.getConnection();
+            String sql = "DELETE from ChucVu WHERE Ma=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, Id);
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public ChucVu getByTen(String ma) {
         ChucVu cv;
