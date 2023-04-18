@@ -11,8 +11,19 @@ import com.mycompany.Service.IPM.HoaDonServiceIpm;
 import com.mycompany.ViewModel.BanHang.GioHangViewModel;
 import com.mycompany.ViewModel.BanHang.HoaDonViewModels;
 import com.mycompany.ViewModel.hoaDon.QLHoaDonViewModel;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -68,6 +79,7 @@ public class HoaDonPanel extends javax.swing.JPanel {
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
         lblTongSoTrang = new javax.swing.JLabel();
+        btnXuatBaoCao = new javax.swing.JButton();
         pnHDCT = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblQLHDCT = new javax.swing.JTable();
@@ -159,6 +171,13 @@ public class HoaDonPanel extends javax.swing.JPanel {
 
         lblTongSoTrang.setText("1/4");
 
+        btnXuatBaoCao.setText("Xuất Báo Cáo");
+        btnXuatBaoCao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatBaoCaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnHoaDonLayout = new javax.swing.GroupLayout(pnHoaDon);
         pnHoaDon.setLayout(pnHoaDonLayout);
         pnHoaDonLayout.setHorizontalGroup(
@@ -202,6 +221,8 @@ public class HoaDonPanel extends javax.swing.JPanel {
                 .addComponent(btnLast)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTongSoTrang, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(btnXuatBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnHoaDonLayout.setVerticalGroup(
@@ -236,7 +257,8 @@ public class HoaDonPanel extends javax.swing.JPanel {
                     .addComponent(lblSoTrang)
                     .addComponent(btnNext)
                     .addComponent(btnLast)
-                    .addComponent(lblTongSoTrang))
+                    .addComponent(lblTongSoTrang)
+                    .addComponent(btnXuatBaoCao))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -369,7 +391,7 @@ public class HoaDonPanel extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        if(soTrang <= TongSoTrang){
+        if (soTrang <= TongSoTrang) {
             soTrang++;
             fillToHoaDon(soTrang);
             lblSoTrang.setText("" + soTrang);
@@ -377,12 +399,103 @@ public class HoaDonPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
+    private void btnXuatBaoCaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatBaoCaoActionPerformed
+        // TODO add your handling code here:
+        try {
+            XSSFWorkbook worbook = new XSSFWorkbook();
+            XSSFSheet sheet = worbook.createSheet("Hóa Đơn");
+
+            XSSFRow row = null;
+            Cell cell = null;
+
+            row = sheet.createRow(3);
+            cell = row.createCell(0, CellType.NUMERIC);
+            cell.setCellValue("STT");
+
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("MaHD");
+
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("Họ tên nhân viên");
+
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("Tên khách hàng");
+
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("Tổng tiền");
+
+            cell = row.createCell(5, CellType.STRING);
+            cell.setCellValue("Ngày Tạo");
+
+            cell = row.createCell(6, CellType.STRING);
+            cell.setCellValue("Ngày Thanh Toán");
+
+            cell = row.createCell(7, CellType.STRING);
+            cell.setCellValue("Ghi chú");
+
+            cell = row.createCell(10, CellType.STRING);
+            cell.setCellValue("Trạng Thái");
+
+            List<QLHoaDonViewModel> list = hoaDonService.getAllHDViewQLHD();
+
+            if (list != null) {
+                int s = list.size();
+                for (int i = 0; i < s; i++) {
+                    QLHoaDonViewModel hd = list.get(i);
+                    row = sheet.createRow(4 + i);
+
+                    cell = row.createCell(0, CellType.NUMERIC);
+                    cell.setCellValue(i + 1);
+
+                    cell = row.createCell(01, CellType.STRING);
+                    cell.setCellValue(hd.getMaHD());
+
+                    cell = row.createCell(02, CellType.STRING);
+                    cell.setCellValue(hd.getHoTenNV());
+
+                    cell = row.createCell(03, CellType.STRING);
+                    cell.setCellValue(hd.getTenKH());
+                        
+                    
+                    cell = row.createCell(04, CellType.STRING);
+                    cell.setCellValue(hd.getTongTien().toString());
+
+                    cell = row.createCell(05, CellType.STRING);
+                    cell.setCellValue(hd.getNgayTao().toString());
+
+                    cell = row.createCell(06, CellType.STRING);
+                    cell.setCellValue(hd.getNgayThanhToan().toString());
+
+                    cell = row.createCell(07, CellType.STRING);
+                    cell.setCellValue(hd.getGhiChu());
+
+                    cell = row.createCell(010, CellType.STRING);
+                    cell.setCellValue(hd.getTrangThai());
+
+                }
+                File f = new File("F:\\FileThongKeHoaHon.xlsx");
+                try {
+                    FileOutputStream fis = new FileOutputStream(f);
+                    worbook.write(fis);
+                    fis.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+        JOptionPane.showMessageDialog(this, "Xuất Thành Công");
+    }//GEN-LAST:event_btnXuatBaoCaoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFirst;
     private javax.swing.JButton btnLast;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrev;
+    private javax.swing.JButton btnXuatBaoCao;
     private javax.swing.JComboBox<String> cbbTrangThai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;

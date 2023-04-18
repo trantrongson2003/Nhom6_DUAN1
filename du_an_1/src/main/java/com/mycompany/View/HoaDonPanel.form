@@ -98,6 +98,8 @@
                   <Component id="btnLast" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblTongSoTrang" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="btnXuatBaoCao" min="-2" pref="133" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -143,6 +145,7 @@
                       <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLast" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTongSoTrang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnXuatBaoCao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
@@ -335,6 +338,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1/4"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnXuatBaoCao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t B&#xe1;o C&#xe1;o"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatBaoCaoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

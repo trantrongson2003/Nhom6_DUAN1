@@ -19,15 +19,17 @@ import java.util.List;
 public interface HoaDonService {
 
     List<HoaDonViewModels> getAllHD();
-    
+
     int countHoaDon();
+
+    List<QLHoaDonViewModel> getAllHDViewQLHD();
 
     List<QLHoaDonViewModel> getAllHDViewQLHD(int soTrang);
 
     List<QLHoaDonViewModel> getAllHDViewQLHDByTrangThai(Integer trangThai);
-    
+
     List<QLHoaDonViewModel> getAllHDViewQLHDByNgay(Date ngay, Date ngay2);
-    
+
     List<QLHoaDonViewModel> getAllHDViewQLHDBySearch(String timKiem);
 
     List<HoaDonViewModels> getAllHDByTrangThai(int tt);
@@ -41,7 +43,7 @@ public interface HoaDonService {
     Integer updateHD(HoaDon hd);
 
     Integer updateHDDatHangThanhCong(HoaDon hd);
-    
+
     ArrayList<HoaDonViewModels> finbyngaythanhToan(String hd);
 
     ArrayList<HoaDonViewModels> finbyngaytrangThai(int ma);

@@ -337,6 +337,35 @@ public class HoaDonRepository {
         }
         return lst;
     }
+    
+     public List<HoaDon> getAllHDViewQLHD() {
+        List<HoaDon> lst = new ArrayList<>();
+        String hql = "  select top 5 hd.MaHD, nv.HoTen as tenNV , kh.HoTen as tenKH, hd.TongTien , hd.NgayTao , hd.NgayThanhToan , hd.GhiChu, hd.TrangThai\n" +
+"  From HoaDon hd left join khachHang kh on hd.IdKH = kh.Id left join nhanVien nv on hd.IdNV = nv.Id";
+        try (Connection con = DBContext.getConnection(); PreparedStatement ps = con.prepareStatement(hql)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                NhanVien nv = new NhanVien();
+                nv.setHoTen(rs.getString("tenNV"));
+                KhachHang kh = new KhachHang();
+                kh.setHoTen(rs.getString("tenKH"));
+                HoaDon hd = new HoaDon();
+                hd.setMaHD(rs.getString("MaHD"));
+                hd.setKhachHang(kh);
+                hd.setNhanVien(nv);
+                hd.setTongTien(rs.getBigDecimal("TongTien"));
+                hd.setNgayTao(rs.getDate("NgayTao"));
+                hd.setNgayThanhToan(rs.getDate("NgayThanhToan"));
+                hd.setGhiChu(rs.getString("GhiChu"));
+                hd.setTrangThai(rs.getInt("TrangThai"));
+                lst.add(hd);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return lst;
+    }
   
     public static void main(String[] args) {
         HoaDonRepository hdrepo = new HoaDonRepository();

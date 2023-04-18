@@ -217,6 +217,26 @@ public class HoaDonServiceIpm implements HoaDonService {
         return list;
     }
 
+    @Override
+    public List<QLHoaDonViewModel> getAllHDViewQLHD() {
+           List<HoaDon> lst = hoaDonRepository.getAllHDViewQLHD();
+        List<QLHoaDonViewModel> lst_view = new ArrayList<>();
+        for (HoaDon hd : lst) {
+            String hoTen= null;
+            if(hd.getKhachHang() == null){
+                hoTen = " ";
+            }else{
+                hoTen = hd.getKhachHang().getHoTen();
+            }
+            QLHoaDonViewModel ql = new QLHoaDonViewModel(hd.getMaHD(),
+                    hd.getNhanVien().getHoTen(),hoTen,hd.getTongTien()
+                    ,hd.getNgayTao(), hd.getNgayThanhToan(), hd.getGhiChu(),hd.getTrangThai());
+            
+            lst_view.add(ql);
+        }
+        return lst_view;
+    }
+
     
     
 

@@ -65,7 +65,7 @@ public class LoginForm extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MẬT KHẨU");
 
-        txtUserName.setText("namtvph23205");
+        txtUserName.setText("abc123");
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserNameActionPerformed(evt);
@@ -89,7 +89,7 @@ public class LoginForm extends javax.swing.JDialog {
 
         jLabel4.setText("Quên mật khẩu?");
 
-        txtPassWord.setText("123456");
+        txtPassWord.setText("12345689");
         txtPassWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassWordActionPerformed(evt);
