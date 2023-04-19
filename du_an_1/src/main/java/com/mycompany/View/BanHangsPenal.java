@@ -119,6 +119,21 @@ public class BanHangsPenal extends javax.swing.JPanel {
         txtTienTraLai.setText("0.0");
         txtSDTKH.setText("");
         txtHoTenKH.setText("");
+        txtGhiChu.setText("");
+
+    }
+
+    public boolean isNumber(String in) {
+        String tienKhachTra = txtKhachTra.getText();
+        String khachck = txtKhachCK.getText();
+
+        try {
+            Double.parseDouble(tienKhachTra);
+            Double.parseDouble(khachck);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 
@@ -956,6 +971,17 @@ public class BanHangsPenal extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Giỏ hàng đang trống không thể thanh toán");
                 return;
             }
+
+            String tienKhachTra = txtKhachTra.getText();
+            String khachck = txtKhachCK.getText();
+            if (tienKhachTra.length() == 0 || khachck.length() == 0) {
+                JOptionPane.showMessageDialog(this, "Không được bỏ trống");
+                return;
+            }
+            if (!isNumber(tienKhachTra) || !isNumber(khachck)) {
+                JOptionPane.showMessageDialog(this, "Chỉ được nhập số");
+            }
+
             Double khachCanTra = Double.parseDouble(txtKhachCanTra.getText());
             Double khachTra = Double.parseDouble(txtKhachTra.getText());
             Double khachCK = Double.parseDouble(txtKhachCK.getText());
@@ -1011,10 +1037,13 @@ public class BanHangsPenal extends javax.swing.JPanel {
                 int luaChon = JOptionPane.showConfirmDialog(this, "Bạn có muốn In Hóa Đơn không ?");
                 if (luaChon == JOptionPane.YES_OPTION) {
                     new InHoaDon_JFrame().setVisible(true);
+                    LoadHD();
+                    clearForm();
                     LoadDSSP(1);
                     fillGioHang("");
-                    clearForm();
+
                 } else {
+                    LoadHD();
                     LoadDSSP(1);
                     fillGioHang("");
                     clearForm();
@@ -1172,7 +1201,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
     }//GEN-LAST:event_rdChoThanhToanActionPerformed
 
     private void rdChuaThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdChuaThanhToanMouseClicked
-     
+
     }//GEN-LAST:event_rdChuaThanhToanMouseClicked
 
     private void EditSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSoLuongActionPerformed
@@ -1307,7 +1336,7 @@ public class BanHangsPenal extends javax.swing.JPanel {
 
     private void tblGioHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGioHangMouseReleased
         // TODO add your handling code here:
-             if (evt.getButton() == MouseEvent.BUTTON3) {
+        if (evt.getButton() == MouseEvent.BUTTON3) {
             if (evt.isPopupTrigger() && tblGioHang.getSelectedRowCount() != 0) {
                 popUpMenu.show(evt.getComponent(), evt.getX(), evt.getY());
             }
