@@ -115,11 +115,11 @@ public class ThungRacNVForm extends javax.swing.JFrame {
         int row = tblThungRacNV.getSelectedRow();
 
         if (row == - 1) {
-            JOptionPane.showMessageDialog(this, "Moi chon dong");
+            JOptionPane.showMessageDialog(this, "Mời chọn dòng");
             return;
         }
 
-        int comfirm = JOptionPane.showConfirmDialog(this, "Xác nhận xóa");
+        int comfirm = JOptionPane.showConfirmDialog(this, "Xác nhận khôi phục");
         if (comfirm != JOptionPane.YES_OPTION) {
             return;
         }
@@ -133,7 +133,7 @@ public class ThungRacNVForm extends javax.swing.JFrame {
         int row = tblThungRacNV.getSelectedRow();
 
         if (row == - 1) {
-            JOptionPane.showMessageDialog(this, "Moi chon dong");
+            JOptionPane.showMessageDialog(this, "Mời chọn dòng");
             return;
         }
 

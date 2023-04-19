@@ -496,11 +496,12 @@ loadFind(svKH.find(txt_find.getText().trim()));
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để xóa !");
                 return;
             }
-KhachHang kh = new KhachHang();
+//KhachHang kh = new KhachHang();
+ String ma = tblBang.getValueAt(row, 0).toString();
 
         int tb = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa không?", "Thông báo", JOptionPane.YES_NO_OPTION);
         if (tb == JOptionPane.YES_OPTION) {
-            svKH.DELETE(kh.getMa());
+            svKH.DELETE(ma);
             loadTableChiTietSP(svKH.getList());
             JOptionPane.showMessageDialog(this, "Xóa Thành Công !");
         } else {

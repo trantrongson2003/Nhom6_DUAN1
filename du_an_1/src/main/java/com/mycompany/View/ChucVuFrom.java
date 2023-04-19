@@ -321,7 +321,8 @@ public class ChucVuFrom extends javax.swing.JFrame {
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
-        String id = txtma.getText();
+        String id = tbchucvu.getValueAt(index, 0).toString();
+        System.out.println(id);
         svcv.delete(id);
         loadTable();
         JOptionPane.showMessageDialog(this, "Xóa Thành Công");
