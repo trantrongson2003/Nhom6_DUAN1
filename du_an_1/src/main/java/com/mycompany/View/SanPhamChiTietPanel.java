@@ -11,6 +11,7 @@ import com.mycompany.ViewModel.BanHang.HoaDonViewModels;
 import com.mycompany.ViewModel.BanHang.SanPhamViewModelBanHang;
 import com.mycompany.ViewModel.NhanVien.NhanVienViewModel;
 import com.mycompany.ViewModel.SanPham.SanPhamViewModelSP;
+import java.awt.Color;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -78,10 +79,9 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                     sp.get(i).getLoai(), sp.get(i).getSize(),
                     sp.get(i).getSoLuong(), sp.get(i).getGiaNhap(),
                     sp.get(i).getGiaBan(),
-                    sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh",
-                    sp.get(i).getBarcode(),
-//                    sp.get(i).get
-                });
+                    sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh", //                    sp.get(i).getBarcode(),
+            //                    sp.get(i).get
+            });
             }
 
         } else {
@@ -95,9 +95,8 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                         sp.get(i).getLoai(), sp.get(i).getSize(),
                         sp.get(i).getSoLuong(), sp.get(i).getGiaNhap(),
                         sp.get(i).getGiaBan(),
-                        sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh",
-                        sp.get(i).getBarcode()
-                    });
+                        sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh", //                        sp.get(i).getBarcode()
+                });
                 }
             } else {
                 for (int i = n; i < m; i++) {
@@ -108,9 +107,8 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                         sp.get(i).getLoai(), sp.get(i).getSize(),
                         sp.get(i).getSoLuong(), sp.get(i).getGiaNhap(),
                         sp.get(i).getGiaBan(),
-                        sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh",
-                        sp.get(i).getBarcode()
-                    });
+                        sp.get(i).getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh", //                        sp.get(i).getBarcode()
+                });
                 }
             }
 
@@ -161,8 +159,6 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
         btnAddloai = new javax.swing.JButton();
         btnThungRac = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtBarcode = new javax.swing.JTextField();
         cbSanPham = new javax.swing.JComboBox<>();
         btnAddsanpham = new javax.swing.JButton();
         btnAddms = new javax.swing.JButton();
@@ -310,8 +306,6 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Barcode");
-
         cbSanPham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSanPhamActionPerformed(evt);
@@ -400,21 +394,16 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(139, 139, 139)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                            .addComponent(jLabel15)
-                                            .addGap(37, 37, 37))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(jLabel16)
-                                            .addGap(43, 43, 43)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(37, 37, 37))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(41, 41, 41))))
+                                        .addComponent(jLabel16)
+                                        .addGap(43, 43, 43))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(131, 131, 131)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBarcode)
                             .addComponent(txtGiaBan, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtGiaNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                             .addComponent(cbSanPham, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -497,9 +486,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
                                         .addGap(43, 43, 43)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(cbbMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6)
-                                            .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel1)))
+                                            .addComponent(jLabel6)))
                                     .addComponent(btnAddms, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,13 +526,13 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
 
         tblSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sản phẩm", "Tên sản phẩm", "Màu sắc", "Nhà sản xuất", "Chất liệu đế", "Hãng", "Loại", "Size", "số lượng", "Giá nhập", "Giá bán", "Trạng thái", "Barcode"
+                "Mã sản phẩm", "Tên sản phẩm", "Màu sắc", "Nhà sản xuất", "Chất liệu đế", "Hãng", "Loại", "Size", "số lượng", "Giá nhập", "Giá bán", "Trạng thái"
             }
         ));
         tblSP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -754,7 +741,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
         cbbCLDG.setSelectedIndex(0);
         cbbNSX.setSelectedIndex(0);
         cbbSize.setSelectedIndex(0);
-        txtBarcode.setText("");
+//        txtBarcode.setText("");
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -762,7 +749,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Lỗi");
             return;
         }
-        if (txtBarcode.getText().isBlank() || txtGiaBan.getText().isBlank() || txtSoLuong.getText().isBlank() || txtGiaNhap.getText().isBlank() || txtTen.getText().isBlank()) {
+        if (txtGiaBan.getText().isBlank() || txtSoLuong.getText().isBlank() || txtGiaNhap.getText().isBlank() || txtTen.getText().isBlank()) {
             JOptionPane.showMessageDialog(this, "Vui Lòng Nhập Đầy Đủ Thông Tin");
             return;
         }
@@ -804,7 +791,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
             ctsp.setGiaNhap(new BigDecimal(txtGiaNhap.getText()));
             ctsp.setGiaBan(new BigDecimal(txtGiaBan.getText()));
             ctsp.setTrangThai(0);
-            ctsp.setBarcode(txtBarcode.getText());
+//            ctsp.setBarcode(txtBarcode.getText());
             if (ctspsService.Update(ctsp) > 0) {
                 fillTable();
                 btnLamMoiActionPerformed(evt);
@@ -815,7 +802,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        if (txtBarcode.getText().isBlank() || txtGiaBan.getText().isBlank() || txtSoLuong.getText().isBlank() || txtGiaNhap.getText().isBlank() || txtTen.getText().isBlank()) {
+        if (txtGiaBan.getText().isBlank() || txtSoLuong.getText().isBlank() || txtGiaNhap.getText().isBlank() || txtTen.getText().isBlank()) {
             JOptionPane.showMessageDialog(this, "Vui Lòng Nhập Đầy Đủ Thông Tin");
             return;
         }
@@ -841,28 +828,28 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
 //            sp.setMa(txtMa.getText());
 //            sp.setTen(txtTen.getText());
             SanPham sp = spService.getAllChucVu().get(cbSanPham.getSelectedIndex());
-                System.out.println(sp);
-                ChiTietSP ctsp = new ChiTietSP();
-                ctsp.setSanPham(sp);
-                ctsp.setMauSac(ms);
-                ctsp.setLoaiSP(loai);
-                ctsp.setChatLieuDeGiay(ncc);
-                ctsp.setNsx(nsx);
-                ctsp.setHang(hang);
-                ctsp.setMoTa("Không");
-                ctsp.setSize((Integer.valueOf(cbbSize.getSelectedItem().toString())));
-                ctsp.setSoLuong(Integer.valueOf(txtSoLuong.getText()));
-                ctsp.setGiaNhap(new BigDecimal(txtGiaNhap.getText()));
-                ctsp.setGiaBan(new BigDecimal(txtGiaBan.getText()));
-                ctsp.setTrangThai(0);
-                ctsp.setBarcode(txtBarcode.getText());
-                ctsp.setSanPham(sp);
-                System.out.println(ctsp);
-                if (ctspsService.add(ctsp) > 0) {
-                    fillTable();
-                    btnLamMoiActionPerformed(evt);
-                }
-            
+            System.out.println(sp);
+            ChiTietSP ctsp = new ChiTietSP();
+            ctsp.setSanPham(sp);
+            ctsp.setMauSac(ms);
+            ctsp.setLoaiSP(loai);
+            ctsp.setChatLieuDeGiay(ncc);
+            ctsp.setNsx(nsx);
+            ctsp.setHang(hang);
+            ctsp.setMoTa("Không");
+            ctsp.setSize((Integer.valueOf(cbbSize.getSelectedItem().toString())));
+            ctsp.setSoLuong(Integer.valueOf(txtSoLuong.getText()));
+            ctsp.setGiaNhap(new BigDecimal(txtGiaNhap.getText()));
+            ctsp.setGiaBan(new BigDecimal(txtGiaBan.getText()));
+            ctsp.setTrangThai(0);
+//                ctsp.setBarcode(txtBarcode.getText());
+            ctsp.setSanPham(sp);
+            System.out.println(ctsp);
+            if (ctspsService.add(ctsp) > 0) {
+                fillTable();
+                btnLamMoiActionPerformed(evt);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -982,7 +969,7 @@ public class SanPhamChiTietPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cbSanPhamActionPerformed
 
     private void btnAddsanphamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddsanphamActionPerformed
-new SanPhamForm().setVisible(true);
+        new SanPhamForm().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddsanphamActionPerformed
 
@@ -1015,7 +1002,6 @@ new SanPhamForm().setVisible(true);
     private javax.swing.JComboBox<MauSac> cbbMS;
     private javax.swing.JComboBox<NhaSanXuat> cbbNSX;
     private javax.swing.JComboBox<String> cbbSize;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1038,7 +1024,6 @@ new SanPhamForm().setVisible(true);
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblTrang;
     private javax.swing.JTable tblSP;
-    private javax.swing.JTextField txtBarcode;
     private javax.swing.JTextField txtGiaBan;
     private javax.swing.JTextField txtGiaNhap;
     private javax.swing.JTextField txtMa;
@@ -1110,7 +1095,7 @@ new SanPhamForm().setVisible(true);
         for (SanPhamViewModelSP sp : ctspsService.getAllSPDangKinhDoanh()) {
             tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(),
                 sp.getLoai(), sp.getSize(), sp.getSoLuong(), sp.getGiaNhap(), sp.getGiaBan(),
-                sp.getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh", sp.getBarcode()});
+                sp.getTrangThai() == 0 ? "Đang kinh doanh" : "Ngừng kinh doanh"});
         }
     }
 
@@ -1121,7 +1106,7 @@ new SanPhamForm().setVisible(true);
         txtGiaNhap.setText(tblSP.getValueAt(row, 9).toString());
         txtGiaBan.setText(tblSP.getValueAt(row, 10).toString());
         cbbSize.setSelectedItem(tblSP.getValueAt(row, 7));
-        txtBarcode.setText(tblSP.getValueAt(row, 12).toString());
+//        txtBarcode.setText(tblSP.getValueAt(row, 12).toString());
 
         Object ms = tblSP.getValueAt(row, 2);
         Integer slMS = cbbMS.getItemCount();
@@ -1164,6 +1149,15 @@ new SanPhamForm().setVisible(true);
             }
         }
 
+        Object sanpham = tblSP.getValueAt(row, 1);
+        Integer slsanpham = cbSanPham.getItemCount();
+        for (int i = 0; i < slsanpham; i++) {
+            Object sp = cbSanPham.getItemAt(i);
+            if (sp.toString().equals((String) sanpham)) {
+                cbSanPham.setSelectedIndex(i);
+            }
+        }
+
     }
 
     public void fillDSSP() {
@@ -1171,7 +1165,7 @@ new SanPhamForm().setVisible(true);
         DecimalFormat dmf = new DecimalFormat("###.####");
         tblModel.setRowCount(0);
         for (SanPhamViewModelSP sp : ctspsService.getAllSPDangKinhDoanh()) {
-            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai(), sp.getBarcode()});
+            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai()});
         }
     }
 
@@ -1180,7 +1174,7 @@ new SanPhamForm().setVisible(true);
         DecimalFormat dmf = new DecimalFormat("###.####");
         tblModel.setRowCount(0);
         for (SanPhamViewModelSP sp : ctspsService.getSPByKhoangGia(gia, gia2)) {
-            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai(), sp.getBarcode()});
+            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai()});
         }
     }
 
@@ -1189,7 +1183,7 @@ new SanPhamForm().setVisible(true);
         DecimalFormat dmf = new DecimalFormat("###.####");
         tblModel.setRowCount(0);
         for (SanPhamViewModelSP sp : ctspsService.getSPBySize(size, size2)) {
-            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai(), sp.getBarcode()});
+            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai()});
         }
     }
 
@@ -1198,7 +1192,7 @@ new SanPhamForm().setVisible(true);
         DecimalFormat dmf = new DecimalFormat("###.####");
         tblModel.setRowCount(0);
         for (SanPhamViewModelSP sp : ctspsService.getSPBySearch(timKiem)) {
-            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai() == 0 ? "Đang Kinh Doanh" : "Ngừng Kinh Doanh", sp.getBarcode()});
+            tblModel.addRow(new Object[]{sp.getMa(), sp.getTen(), sp.getMauSac(), sp.getNhaSanXuat(), sp.getChatLieuDeGiay(), sp.getHang(), sp.getLoai(), sp.getSize(), sp.getSoLuong(), dmf.format(sp.getGiaNhap()), dmf.format(sp.getGiaBan()), sp.getTrangThai() == 0 ? "Đang Kinh Doanh" : "Ngừng Kinh Doanh"});
         }
     }
 

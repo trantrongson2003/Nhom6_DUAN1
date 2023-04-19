@@ -39,7 +39,7 @@ public class ThungRacSPForm extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 nv.getMa(), nv.getTen(), nv.getMauSac(), nv.getNhaSanXuat(),
                 nv.getChatLieuDeGiay(), nv.getHang(),
-                nv.getLoai(), nv.getSize(), nv.getSoLuong(), nv.getGiaNhap(), nv.getGiaBan(), nv.getTrangThai() == 0 ? "Đang Kinh Doamh" : "Ngừng Kinh Doanh", nv.getBarcode()
+                nv.getLoai(), nv.getSize(), nv.getSoLuong(), nv.getGiaNhap(), nv.getGiaBan(), nv.getTrangThai() == 0 ? "Đang Kinh Doamh" : "Ngừng Kinh Doanh"
             });
         }
     }
@@ -90,13 +90,13 @@ public class ThungRacSPForm extends javax.swing.JFrame {
 
         tblThungRacSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Sản Phẩm", "Tên Sản Phẩm", "Màu Sắc", "Nhà Sản Xuất", "Nhà Cung Cấp", "Hãng", "Loại ", "Size", "Số Lượng", "Giá Nhập", "Giá Bán", "Trạng Thái", "Barcode"
+                "Mã Sản Phẩm", "Tên Sản Phẩm", "Màu Sắc", "Nhà Sản Xuất", "Nhà Cung Cấp", "Hãng", "Loại ", "Size", "Số Lượng", "Giá Nhập", "Giá Bán", "Trạng Thái"
             }
         ));
         tblThungRacSP.setOpaque(false);
